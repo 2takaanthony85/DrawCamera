@@ -31,8 +31,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.view.backgroundColor = UIColor.white
         self.view.addSubview(loginView)
         NSLayoutConstraint.activate(loginViewSetup)
+        
     }
     
     //return押された時
@@ -63,8 +65,10 @@ extension LoginViewController: LoginDelegate {
         self.present(navi, animated: true, completion: nil)
     }
     
-    func register() {
+    func registerViewTransition() {
         print("register")
+        
     }
+    
     
 }

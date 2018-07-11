@@ -1,5 +1,5 @@
 //
-//  LoginView.swift
+//  RegisterView2.swift
 //  DrawCameraSample
 //
 //  Created by atd on 2018/07/11.
@@ -8,28 +8,11 @@
 
 import UIKit
 
-class LoginView: UIView {
-    
+class RegisterView2: UIView {
+
     /*
      initialization closure
      */
-    
-    private let companyCodeLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "企業コード"
-        label.sizeToFit()
-        return label
-    }()
-
-    let companyCode: UITextField = {
-       let field = UITextField()
-        field.translatesAutoresizingMaskIntoConstraints = false
-        field.borderStyle = .roundedRect
-        field.placeholder = "企業コード"
-        field.keyboardType = .URL
-        return field
-    }()
     
     private let userIDLabel: UILabel = {
         let label = UILabel()
@@ -49,7 +32,6 @@ class LoginView: UIView {
     }()
     
     private let passwordLabel: UILabel = {
-        print("あほ")
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "パスワード"
@@ -68,48 +50,29 @@ class LoginView: UIView {
         return field
     }()
     
-    private let loginButton: UIButton = {
-       let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("ログイン", for: .normal)
-        button.titleLabel?.textColor = UIColor.white
-        button.backgroundColor = UIColor.gray
-        button.layer.cornerRadius = 10
-        button.addTarget(self, action: #selector(loginButtonTapped(_:)), for: .touchUpInside)
-        return button
-    }()
-    
-    private let registerButton: UIButton = {
+    private let newRegisterButton: UIButton = {
+        print("baka")
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("新規登録はこちらから", for: .normal)
+        button.setTitle("登録", for: .normal)
         button.titleLabel?.textColor = UIColor.white
         button.backgroundColor = UIColor.gray
         button.layer.cornerRadius = 10
-        button.addTarget(self, action: #selector(registerButtonTapped(_:)), for: .touchUpInside)
+        button.addTarget(self, action: #selector(newRegisterButtonTapped(_:)), for: .touchUpInside)
         return button
     }()
-    
-    weak var delegate: LoginDelegate?
-    
-    /*
-     init
-     */
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.translatesAutoresizingMaskIntoConstraints = false
-        
-        self.addSubview(companyCodeLabel)
-        self.addSubview(companyCode)
+
         self.addSubview(userIDLabel)
         self.addSubview(userID)
         self.addSubview(passwordLabel)
         self.addSubview(password)
-        self.addSubview(loginButton)
-        self.addSubview(registerButton)
+        self.addSubview(newRegisterButton)
         
-        let layouts = companyCodeLabelSetup + companyCodeSetup + userIDLableSetup + userIDSetup + passwordLabelSetup + passwordSetup + loginButtonSetup + registerButtonSetup
+        let layouts = userIDLableSetup + userIDSetup + passwordLabelSetup + passwordSetup + newRegisterButtonSetup
         NSLayoutConstraint.activate(layouts)
     }
     
@@ -117,41 +80,13 @@ class LoginView: UIView {
      ボタンアクション
      */
     @objc
-    private func loginButtonTapped(_ sender: UIButton) {
-        print("login button tapped")
-        self.delegate?.login(self.companyCode.text!, self.userID.text!, self.password.text!)
-    }
+    private func newRegisterButtonTapped(_ sender: UIButton) {
     
-    @objc
-    private func registerButtonTapped(_ sender: UIButton) {
-        print("register button tapped")
-        self.delegate?.registerViewTransition()
     }
-    
     
     /*
      レイアウト
      */
-    
-    private lazy var companyCodeLabelSetup: [NSLayoutConstraint] = {
-        var layouts: [NSLayoutConstraint] = []
-        
-        layouts.append(self.companyCodeLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20))
-        layouts.append(self.companyCodeLabel.widthAnchor.constraint(equalToConstant: 100))
-        layouts.append(self.companyCodeLabel.heightAnchor.constraint(equalToConstant: 50))
-        layouts.append(self.companyCodeLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 50))
-        return layouts
-    }()
-    
-    private lazy var companyCodeSetup: [NSLayoutConstraint] = {
-        var layouts: [NSLayoutConstraint] = []
-        
-        layouts.append(self.companyCode.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20))
-        layouts.append(self.companyCode.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20))
-        layouts.append(self.companyCode.heightAnchor.constraint(equalToConstant: 45))
-        layouts.append(self.companyCode.topAnchor.constraint(equalTo: companyCodeLabel.bottomAnchor, constant: -10))
-        return layouts
-    }()
     
     private lazy var userIDLableSetup: [NSLayoutConstraint] = {
         var layouts: [NSLayoutConstraint] = []
@@ -159,7 +94,7 @@ class LoginView: UIView {
         layouts.append(self.userIDLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20))
         layouts.append(self.userIDLabel.widthAnchor.constraint(equalToConstant: 100))
         layouts.append(self.userIDLabel.heightAnchor.constraint(equalToConstant: 50))
-        layouts.append(self.userIDLabel.topAnchor.constraint(equalTo: companyCode.bottomAnchor, constant: 5))
+        layouts.append(self.userIDLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 50))
         return layouts
     }()
     
@@ -193,29 +128,19 @@ class LoginView: UIView {
         return layouts
     }()
     
-    private lazy var loginButtonSetup: [NSLayoutConstraint] = {
+    
+    private lazy var newRegisterButtonSetup: [NSLayoutConstraint] = {
         var layouts: [NSLayoutConstraint] = []
         
-        layouts.append(self.loginButton.centerXAnchor.constraint(equalTo: self.centerXAnchor))
-        layouts.append(self.loginButton.widthAnchor.constraint(equalToConstant: 200))
-        layouts.append(self.loginButton.heightAnchor.constraint(equalToConstant: 45))
-        layouts.append(self.loginButton.topAnchor.constraint(equalTo: password.bottomAnchor, constant: 20))
+        layouts.append(self.newRegisterButton.centerXAnchor.constraint(equalTo: self.centerXAnchor))
+        layouts.append(self.newRegisterButton.widthAnchor.constraint(equalToConstant: 200))
+        layouts.append(self.newRegisterButton.heightAnchor.constraint(equalToConstant: 45))
+        layouts.append(self.newRegisterButton.topAnchor.constraint(equalTo: password.bottomAnchor, constant: 20))
         return layouts
     }()
-    
-    private lazy var registerButtonSetup: [NSLayoutConstraint] = {
-        var layouts: [NSLayoutConstraint] = []
-        
-        layouts.append(self.registerButton.centerXAnchor.constraint(equalTo: self.centerXAnchor))
-        layouts.append(self.registerButton.widthAnchor.constraint(equalToConstant: 200))
-        layouts.append(self.registerButton.heightAnchor.constraint(equalToConstant: 45))
-        layouts.append(self.registerButton.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 10))
-        return layouts
-    }()
-    
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
-    
+
 }
