@@ -16,6 +16,12 @@ protocol LoginDelegate: class {
     //新規登録画面に遷移
     func registerViewTransition()
 
+}
+
+protocol Register1Delegate: class {
+    
+    //確認
+    func confirm()
     
 }
 

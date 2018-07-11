@@ -37,6 +37,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
     //return押された時
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
@@ -67,7 +72,8 @@ extension LoginViewController: LoginDelegate {
     
     func registerViewTransition() {
         print("register")
-        
+        let vc = RegisterViewController1()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     

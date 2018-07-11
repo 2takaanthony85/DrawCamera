@@ -65,7 +65,8 @@ class RegisterView2: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.translatesAutoresizingMaskIntoConstraints = false
-
+        self.backgroundColor = UIColor.white
+        
         self.addSubview(userIDLabel)
         self.addSubview(userID)
         self.addSubview(passwordLabel)

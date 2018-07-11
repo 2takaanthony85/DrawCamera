@@ -61,10 +61,12 @@ class RegisterView1: UIView {
         return button
     }()
     
+    weak var delegate: Register1Delegate?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.translatesAutoresizingMaskIntoConstraints = false
+        self.backgroundColor = UIColor.white
         
         self.addSubview(companyCodeLabel)
         self.addSubview(companyCode)
@@ -85,7 +87,7 @@ class RegisterView1: UIView {
      */
     @objc
     private func confirmButtonTapped(_ sender: UIButton) {
-        
+        self.delegate?.confirm()
     }
     
     

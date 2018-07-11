@@ -21,7 +21,6 @@
 		6E0E1F0E20F609C700898E91 /* RegisterView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0E1F0D20F609C700898E91 /* RegisterView2.swift */; };
 		6E0E1F1020F61BE900898E91 /* RegisterViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0E1F0F20F61BE900898E91 /* RegisterViewController1.swift */; };
 		6E0E1F1220F61BF900898E91 /* RegisterViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0E1F1120F61BF900898E91 /* RegisterViewController2.swift */; };
-		6E0E1F1420F61DC100898E91 /* LoginPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0E1F1320F61DC100898E91 /* LoginPageViewController.swift */; };
 		6E59A7B520F4BEDF0056286B /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E59A7B420F4BEDF0056286B /* CameraViewController.swift */; };
 		6E59A7BA20F4C10D0056286B /* CaptureButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E59A7B920F4C10D0056286B /* CaptureButton.swift */; };
 		6E59A7BC20F4C4BF0056286B /* CaptureButtonDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E59A7BB20F4C4BF0056286B /* CaptureButtonDelegate.swift */; };
@@ -72,7 +71,6 @@
 		6E0E1F0D20F609C700898E91 /* RegisterView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView2.swift; sourceTree = "<group>"; };
 		6E0E1F0F20F61BE900898E91 /* RegisterViewController1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController1.swift; sourceTree = "<group>"; };
 		6E0E1F1120F61BF900898E91 /* RegisterViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController2.swift; sourceTree = "<group>"; };
-		6E0E1F1320F61DC100898E91 /* LoginPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageViewController.swift; sourceTree = "<group>"; };
 		6E59A7B420F4BEDF0056286B /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		6E59A7B920F4C10D0056286B /* CaptureButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureButton.swift; sourceTree = "<group>"; };
 		6E59A7BB20F4C4BF0056286B /* CaptureButtonDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureButtonDelegate.swift; sourceTree = "<group>"; };
@@ -167,7 +165,6 @@
 			isa = PBXGroup;
 			children = (
 				6E0E1EED20F5C7ED00898E91 /* LoginViewController.swift */,
-				6E0E1F1320F61DC100898E91 /* LoginPageViewController.swift */,
 				6E0E1F0F20F61BE900898E91 /* RegisterViewController1.swift */,
 				6E0E1F1120F61BF900898E91 /* RegisterViewController2.swift */,
 				6E59A7BD20F4CEA30056286B /* PhotoListViewController.swift */,
@@ -355,7 +352,6 @@
 				6E0E1F0E20F609C700898E91 /* RegisterView2.swift in Sources */,
 				6E59A7BA20F4C10D0056286B /* CaptureButton.swift in Sources */,
 				6EC882D720EB7452006B79BD /* PreviewDelegate.swift in Sources */,
-				6E0E1F1420F61DC100898E91 /* LoginPageViewController.swift in Sources */,
 				6E59A7BE20F4CEA30056286B /* PhotoListViewController.swift in Sources */,
 				6EC882D520EB7191006B79BD /* Preview.swift in Sources */,
 				6E0E1EEE20F5C7ED00898E91 /* LoginViewController.swift in Sources */,

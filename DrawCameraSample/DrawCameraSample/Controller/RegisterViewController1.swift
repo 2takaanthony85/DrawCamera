@@ -14,7 +14,7 @@ class RegisterViewController1: UIViewController, UITextFieldDelegate {
         let view1 = RegisterView1(frame: self.view.frame)
         view1.companyCode.delegate = self
         view1.companyPassword.delegate = self
-        //view1.delegate = self
+        view1.delegate = self
         return view1
     }()
     
@@ -47,16 +47,13 @@ class RegisterViewController1: UIViewController, UITextFieldDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
+}
+
+extension RegisterViewController1: Register1Delegate {
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func confirm() {
+        let vc = RegisterViewController2()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
-    */
-
 }
