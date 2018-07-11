@@ -13,7 +13,10 @@ protocol LoginDelegate: class {
     //ログイン
     func login(_ companyCode: String, _ userID: String, _ password: String)
     
-    //新規登録
-    func register()
+    //新規登録画面に遷移
+    func registerViewTransition()
+
     
 }
+
+
