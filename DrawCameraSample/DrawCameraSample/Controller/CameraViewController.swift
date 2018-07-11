@@ -1,44 +1,35 @@
 //
-//  ViewController.swift
+//  CameraViewController.swift
 //  DrawCameraSample
 //
-//  Created by 吉川昂広 on 2018/07/02.
+//  Created by atd on 2018/07/10.
 //  Copyright © 2018年 takahiro yoshikawa. All rights reserved.
 //
 
 import UIKit
 import AVFoundation
 
-class ViewController: UIViewController {
-
+class CameraViewController: UIViewController {
+    
     var captureSession = AVCaptureSession()
     var output: AVCapturePhotoOutput!
     var previewLayer: AVCaptureVideoPreviewLayer!
     
-    var captureButton: UIButton!
-    
+    var captureButton: CaptureButton!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
         previewLayer.videoGravity = .resizeAspect
         previewLayer.frame = self.view.frame
         previewLayer.connection?.videoOrientation = .portrait
         self.view.layer.addSublayer(previewLayer)
         
-        captureButton = UIButton()
-        captureButton.backgroundColor = UIColor.clear
-        captureButton.layer.borderWidth = 4.0
-        captureButton.layer.borderColor = UIColor.white.cgColor
-        captureButton.layer.cornerRadius = 40
-        captureButton.translatesAutoresizingMaskIntoConstraints = false
+        captureButton = CaptureButton()
+        captureButton.delegate = self
         self.view.addSubview(captureButton)
-        captureButton.addTarget(self, action: #selector(captureButtonTapped(_:)), for: .touchUpInside)
-        
-        captureButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-        captureButton.widthAnchor.constraint(equalToConstant: 80).isActive = true
-        captureButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -10).isActive = true
-        captureButton.heightAnchor.constraint(equalToConstant: 80).isActive = true
+        layout()
         
         sessionConfigure()
     }
@@ -69,16 +60,12 @@ class ViewController: UIViewController {
         }
     }
     
-    @objc func captureButtonTapped(_ sender: UIButton) {
-        let settings = AVCapturePhotoSettings()
-        if output.supportedFlashModes.contains(AVCaptureDevice.FlashMode.on) {
-            settings.flashMode = .auto
-        }
-        output.capturePhoto(with: settings, delegate: self)
-    }
-    
     override var shouldAutorotate: Bool {
         return false
+    }
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
     }
 
     override func didReceiveMemoryWarning() {
@@ -87,7 +74,15 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController: AVCapturePhotoCaptureDelegate {
+extension CameraViewController: AVCapturePhotoCaptureDelegate, CaptureButtonDelegate {
+    
+    func takePhoto() {
+        let settings = AVCapturePhotoSettings()
+        if output.supportedFlashModes.contains(AVCaptureDevice.FlashMode.on) {
+            settings.flashMode = .auto
+        }
+        output.capturePhoto(with: settings, delegate: self)
+    }
     
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
         if let imageData = photo.fileDataRepresentation() {
@@ -99,3 +94,17 @@ extension ViewController: AVCapturePhotoCaptureDelegate {
     }
 }
 
+/*
+ レイアウト
+ */
+
+extension CameraViewController {
+    
+    private func layout() {
+        captureButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        captureButton.widthAnchor.constraint(equalToConstant: 80).isActive = true
+        captureButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -10).isActive = true
+        captureButton.heightAnchor.constraint(equalToConstant: 80).isActive = true
+    }
+    
+}
