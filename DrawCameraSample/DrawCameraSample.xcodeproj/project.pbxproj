@@ -8,13 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		59F54F4620EA4F2100434DD2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F54F4520EA4F2100434DD2 /* AppDelegate.swift */; };
-		59F54F4820EA4F2100434DD2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F54F4720EA4F2100434DD2 /* ViewController.swift */; };
 		59F54F4B20EA4F2100434DD2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59F54F4920EA4F2100434DD2 /* Main.storyboard */; };
 		59F54F4D20EA4F2200434DD2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 59F54F4C20EA4F2200434DD2 /* Assets.xcassets */; };
 		59F54F5020EA4F2200434DD2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59F54F4E20EA4F2200434DD2 /* LaunchScreen.storyboard */; };
 		59F54F5B20EA4F2200434DD2 /* DrawCameraSampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F54F5A20EA4F2200434DD2 /* DrawCameraSampleTests.swift */; };
 		59F54F6620EA4F2200434DD2 /* DrawCameraSampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F54F6520EA4F2200434DD2 /* DrawCameraSampleUITests.swift */; };
 		59F54F7520EA50F000434DD2 /* PreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F54F7420EA50F000434DD2 /* PreviewController.swift */; };
+		6E0E1EEE20F5C7ED00898E91 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0E1EED20F5C7ED00898E91 /* LoginViewController.swift */; };
+		6E0E1EF020F5C7F800898E91 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0E1EEF20F5C7F800898E91 /* RegisterViewController.swift */; };
+		6E0E1EF420F5C82300898E91 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0E1EF320F5C82300898E91 /* LoginView.swift */; };
+		6E0E1EF620F5C83100898E91 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0E1EF520F5C83100898E91 /* RegisterView.swift */; };
+		6E0E1F0C20F5FED300898E91 /* LoginDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0E1F0B20F5FED300898E91 /* LoginDelegate.swift */; };
 		6E59A7B520F4BEDF0056286B /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E59A7B420F4BEDF0056286B /* CameraViewController.swift */; };
 		6E59A7BA20F4C10D0056286B /* CaptureButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E59A7B920F4C10D0056286B /* CaptureButton.swift */; };
 		6E59A7BC20F4C4BF0056286B /* CaptureButtonDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E59A7BB20F4C4BF0056286B /* CaptureButtonDelegate.swift */; };
@@ -47,7 +51,6 @@
 /* Begin PBXFileReference section */
 		59F54F4220EA4F2100434DD2 /* DrawCameraSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrawCameraSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		59F54F4520EA4F2100434DD2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		59F54F4720EA4F2100434DD2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		59F54F4A20EA4F2100434DD2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		59F54F4C20EA4F2200434DD2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		59F54F4F20EA4F2200434DD2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -59,6 +62,11 @@
 		59F54F6520EA4F2200434DD2 /* DrawCameraSampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawCameraSampleUITests.swift; sourceTree = "<group>"; };
 		59F54F6720EA4F2200434DD2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		59F54F7420EA50F000434DD2 /* PreviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewController.swift; sourceTree = "<group>"; };
+		6E0E1EED20F5C7ED00898E91 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		6E0E1EEF20F5C7F800898E91 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		6E0E1EF320F5C82300898E91 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		6E0E1EF520F5C83100898E91 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		6E0E1F0B20F5FED300898E91 /* LoginDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDelegate.swift; sourceTree = "<group>"; };
 		6E59A7B420F4BEDF0056286B /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		6E59A7B920F4C10D0056286B /* CaptureButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureButton.swift; sourceTree = "<group>"; };
 		6E59A7BB20F4C4BF0056286B /* CaptureButtonDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureButtonDelegate.swift; sourceTree = "<group>"; };
@@ -152,7 +160,8 @@
 		6E59A7AC20F4A67D0056286B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				59F54F4720EA4F2100434DD2 /* ViewController.swift */,
+				6E0E1EED20F5C7ED00898E91 /* LoginViewController.swift */,
+				6E0E1EEF20F5C7F800898E91 /* RegisterViewController.swift */,
 				6E59A7BD20F4CEA30056286B /* PhotoListViewController.swift */,
 				6E59A7BF20F4D5EC0056286B /* ContainerViewController.swift */,
 				6E59A7B420F4BEDF0056286B /* CameraViewController.swift */,
@@ -166,6 +175,8 @@
 			children = (
 				6EC882D420EB7191006B79BD /* Preview.swift */,
 				6E59A7C520F4DB540056286B /* PhotoListView.swift */,
+				6E0E1EF320F5C82300898E91 /* LoginView.swift */,
+				6E0E1EF520F5C83100898E91 /* RegisterView.swift */,
 				6E59A7B620F4BF180056286B /* Component */,
 			);
 			path = View;
@@ -177,6 +188,7 @@
 				6EC882D620EB7452006B79BD /* PreviewDelegate.swift */,
 				6E59A7BB20F4C4BF0056286B /* CaptureButtonDelegate.swift */,
 				6E59A7C320F4DA130056286B /* CameraButtonDelegate.swift */,
+				6E0E1F0B20F5FED300898E91 /* LoginDelegate.swift */,
 			);
 			path = Delegate;
 			sourceTree = "<group>";
@@ -321,19 +333,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E0E1F0C20F5FED300898E91 /* LoginDelegate.swift in Sources */,
 				6E59A7C620F4DB540056286B /* PhotoListView.swift in Sources */,
 				59F54F7520EA50F000434DD2 /* PreviewController.swift in Sources */,
 				6E59A7C420F4DA130056286B /* CameraButtonDelegate.swift in Sources */,
+				6E0E1EF620F5C83100898E91 /* RegisterView.swift in Sources */,
 				6E59A7BC20F4C4BF0056286B /* CaptureButtonDelegate.swift in Sources */,
 				6E59A7C220F4D97B0056286B /* CameraButton.swift in Sources */,
 				6E59A7C020F4D5EC0056286B /* ContainerViewController.swift in Sources */,
 				6E59A7BA20F4C10D0056286B /* CaptureButton.swift in Sources */,
 				6EC882D720EB7452006B79BD /* PreviewDelegate.swift in Sources */,
-				59F54F4820EA4F2100434DD2 /* ViewController.swift in Sources */,
+				6E0E1EF020F5C7F800898E91 /* RegisterViewController.swift in Sources */,
 				6E59A7BE20F4CEA30056286B /* PhotoListViewController.swift in Sources */,
 				6EC882D520EB7191006B79BD /* Preview.swift in Sources */,
+				6E0E1EEE20F5C7ED00898E91 /* LoginViewController.swift in Sources */,
 				59F54F4620EA4F2100434DD2 /* AppDelegate.swift in Sources */,
 				6E59A7B520F4BEDF0056286B /* CameraViewController.swift in Sources */,
+				6E0E1EF420F5C82300898E91 /* LoginView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
