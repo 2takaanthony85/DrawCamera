@@ -324,12 +324,19 @@ class Preview: UIView {
     }
     
     //線を描画する
-    func drawLine(_ location: CGPoint) {
+    private func drawLine(_ location: CGPoint) {
         linePath.move(to: beforePoint)
         linePath.addLine(to: location)
         drawLayer.path = linePath
     }
     
+    //移動時の境界判定（縦画面の場合）
+    private func judgePortraitFrame(_ label: UILabel) {
+        label.frame.origin.x = label.frame.origin.x < self.frame.origin.x ? self.frame.origin.x : label.frame.origin.x
+        label.frame.origin.y = label.frame.origin.y < self.frame.origin.y ? self.frame.origin.y : label.frame.origin.y
+        label.frame.origin.x = self.frame.maxX < label.frame.maxX ? (self.frame.maxX - label.frame.width) : label.frame.origin.x
+        label.frame.origin.y = self.frame.maxY < label.frame.maxY ? (self.frame.maxY - label.frame.height) : label.frame.origin.y
+    }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first {
@@ -348,6 +355,7 @@ class Preview: UIView {
             
             if tapPoint == .Label {
                 commentLabel.frame = commentLabel.frame.offsetBy(dx: location.x - beforePoint.x, dy: location.y - beforePoint.y)
+                judgePortraitFrame(commentLabel)
             } else {
                 drawLine(location)
             }
@@ -362,6 +370,7 @@ class Preview: UIView {
             
             if tapPoint == .Label {
                 commentLabel.frame = commentLabel.frame.offsetBy(dx: location.x - beforePoint.x, dy: location.y - beforePoint.y)
+                judgePortraitFrame(commentLabel)
             } else {
                 drawLine(location)
             }
