@@ -15,7 +15,17 @@ class CameraViewController: UIViewController {
     var output: AVCapturePhotoOutput!
     var previewLayer: AVCaptureVideoPreviewLayer!
     
-    var captureButton: CaptureButton!
+    private lazy var captureButton: CaptureButton = {
+       let button = CaptureButton(frame: self.view.frame)
+        button.delegate = self
+        return button
+    }()
+    
+//    private lazy var returnButton: ReturnButton = {
+//       let button = ReturnButton(frame: self.view.frame)
+//        button.delegate = self
+//        return button
+//    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,18 +36,16 @@ class CameraViewController: UIViewController {
         previewLayer.connection?.videoOrientation = .portrait
         self.view.layer.addSublayer(previewLayer)
         
-        captureButton = CaptureButton()
-        captureButton.delegate = self
         self.view.addSubview(captureButton)
+        //self.view.addSubview(returnButton)
         layout()
         
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(endCamera))
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        
         sessionConfigure()
-        
-        
-    }
     
-    @objc private func endCamera() {
-        self.dismiss(animated: true, completion: nil)
     }
     
     private func sessionConfigure() {
@@ -66,12 +74,17 @@ class CameraViewController: UIViewController {
         }
     }
     
+    @objc private func endCamera() {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     override var shouldAutorotate: Bool {
         return false
     }
     
+    //ステータスバーの表示、非表示
     override var prefersStatusBarHidden: Bool {
-        return true
+        return false
     }
 
     override func didReceiveMemoryWarning() {
@@ -112,5 +125,12 @@ extension CameraViewController {
         captureButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -10).isActive = true
         captureButton.heightAnchor.constraint(equalToConstant: 80).isActive = true
     }
+    
+//    private func setup() {
+//        returnButton.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 20).isActive = true
+//        returnButton.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 20).isActive = true
+//        returnButton.widthAnchor.constraint(equalToConstant: 30).isActive = true
+//        returnButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
+//    }
     
 }

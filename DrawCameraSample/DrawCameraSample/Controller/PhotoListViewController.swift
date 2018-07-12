@@ -10,27 +10,23 @@ import UIKit
 
 class PhotoListViewController: UIViewController, CameraButtonDelegate {
     
-    private lazy var cameraButton: CameraButton = {
-        let button = CameraButton(frame: self.view.frame)
-        button.delegate = self
-        return button
+    private lazy var buttonsView: CameraButtonsView = {
+       let buttonsView = CameraButtonsView(frame: self.view.frame)
+        buttonsView.cameraButton.delegate = self
+        return buttonsView
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let leftBarButton = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(leftBarButtonTapped(_:)))
-        leftBarButton.title = "選択"
-        let rightBarButton = UIBarButtonItem(title: "設定", style: .plain, target: self, action: #selector(rightBarButtonTapeed(_:)))
-        
-        self.navigationItem.leftBarButtonItem = leftBarButton
+        let rightBarButton = UIBarButtonItem(title: "選択", style: .plain, target: self, action: #selector(rightBarButtonTapeed(_:)))
         self.navigationItem.rightBarButtonItem = rightBarButton
         
         let conVC = ContainerViewController()
         displayContainerView(conVC)
         
-        self.view.addSubview(cameraButton)
-        layout(cameraButton)
+        self.view.addSubview(buttonsView)
+        setup()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -39,7 +35,8 @@ class PhotoListViewController: UIViewController, CameraButtonDelegate {
     
     func showCamera() {
         let cameraVC = CameraViewController()
-        self.present(cameraVC, animated: true, completion: nil)
+        let navi = UINavigationController(rootViewController: cameraVC)
+        self.present(navi, animated: true, completion: nil)
     }
     
     private func displayContainerView(_ vc: UIViewController) {
@@ -49,19 +46,15 @@ class PhotoListViewController: UIViewController, CameraButtonDelegate {
         vc.didMove(toParentViewController: self)
     }
     
-    @objc private func leftBarButtonTapped(_ sender: UIButton) {
-        
-    }
-    
     @objc private func rightBarButtonTapeed(_ sender: UIButton) {
-        
+        self.setEditing(true, animated: true)
     }
     
-    private func layout(_ button: UIButton) {
-        button.widthAnchor.constraint(equalToConstant: 60).isActive = true
-        button.heightAnchor.constraint(equalToConstant: 60).isActive = true
-        button.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -30).isActive = true
-        button.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -30).isActive = true
+    private func setup() {
+        buttonsView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
+        buttonsView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
+        buttonsView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
+        buttonsView.heightAnchor.constraint(equalToConstant: 100).isActive = true
     }
     
     override func didReceiveMemoryWarning() {
