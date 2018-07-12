@@ -32,6 +32,7 @@ class RegisterViewController1: UIViewController, UITextFieldDelegate {
 
         self.view.addSubview(register1)
         NSLayoutConstraint.activate(register1Setup)
+        
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

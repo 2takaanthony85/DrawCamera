@@ -32,6 +32,12 @@ class CameraViewController: UIViewController {
         layout()
         
         sessionConfigure()
+        
+        
+    }
+    
+    @objc private func endCamera() {
+        self.dismiss(animated: true, completion: nil)
     }
     
     private func sessionConfigure() {
