@@ -17,7 +17,7 @@ class CameraButton: UIButton {
         
         self.translatesAutoresizingMaskIntoConstraints = false
         self.backgroundColor = UIColor.blue
-        self.layer.cornerRadius = 30
+        self.layer.cornerRadius = 35
         self.addTarget(self, action: #selector(cameraButtonTapped(_:)), for: .touchUpInside)
     }
     
