@@ -49,10 +49,6 @@ class PhotoListViewController: UIViewController, CameraButtonDelegate {
         self.view.addSubview(vc.view)
         vc.didMove(toParentViewController: self)
     }
-
-    override var shouldAutorotate: Bool {
-        return false
-    }
     
     @objc private func leftBarButtonTapped(_ sender: UIButton) {
         

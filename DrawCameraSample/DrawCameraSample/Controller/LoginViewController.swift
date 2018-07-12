@@ -47,10 +47,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         textField.resignFirstResponder()
         return true
     }
-    
-    override var shouldAutorotate: Bool {
-        return false
-    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -75,6 +71,5 @@ extension LoginViewController: LoginDelegate {
         let vc = RegisterViewController1()
         self.navigationController?.pushViewController(vc, animated: true)
     }
-    
     
 }

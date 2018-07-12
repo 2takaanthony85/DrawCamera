@@ -38,10 +38,6 @@ class RegisterViewController1: UIViewController, UITextFieldDelegate {
         textField.resignFirstResponder()
         return true
     }
-    
-    override var shouldAutorotate: Bool {
-        return false
-    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

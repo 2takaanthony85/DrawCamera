@@ -62,6 +62,8 @@ class RegisterView2: UIView {
         return button
     }()
     
+    weak var delegate: Register2Delegate?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.translatesAutoresizingMaskIntoConstraints = false
@@ -82,7 +84,7 @@ class RegisterView2: UIView {
      */
     @objc
     private func newRegisterButtonTapped(_ sender: UIButton) {
-    
+        self.delegate?.register()
     }
     
     /*

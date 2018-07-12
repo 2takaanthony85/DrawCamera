@@ -25,4 +25,11 @@ protocol Register1Delegate: class {
     
 }
 
+protocol Register2Delegate: class {
+    
+    //登録
+    func register()
+    
+}
+
 

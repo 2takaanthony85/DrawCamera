@@ -12,7 +12,7 @@ class RegisterViewController2: UIViewController, UITextFieldDelegate {
     
     private lazy var register2: RegisterView2 = {
         let view2 = RegisterView2(frame: self.view.frame)
-        //view2.delegate = self
+        view2.delegate = self
         view2.password.delegate = self
         view2.userID.delegate = self
         return view2
@@ -38,14 +38,20 @@ class RegisterViewController2: UIViewController, UITextFieldDelegate {
         textField.resignFirstResponder()
         return true
     }
-    
-    override var shouldAutorotate: Bool {
-        return false
-    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
+}
+
+extension RegisterViewController2: Register2Delegate {
+    
+    func register() {
+        let vc = PhotoListViewController()
+        let navi = UINavigationController(rootViewController: vc)
+        self.present(navi, animated: true, completion: nil)
+    }
+    
 }

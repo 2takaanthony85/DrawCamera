@@ -24,10 +24,6 @@ class ContainerViewController: UIViewController {
         tableView.widthAnchor.constraint(equalTo: self.view.widthAnchor).isActive = true
         tableView.heightAnchor.constraint(equalTo: self.view.heightAnchor).isActive = true
     }
-    
-    override var shouldAutorotate: Bool {
-        return false
-    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
