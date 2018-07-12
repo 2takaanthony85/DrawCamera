@@ -62,6 +62,7 @@ class RegisterView2: UIView {
         return button
     }()
     
+    
     weak var delegate: Register2Delegate?
     
     override init(frame: CGRect) {
@@ -86,6 +87,7 @@ class RegisterView2: UIView {
     private func newRegisterButtonTapped(_ sender: UIButton) {
         self.delegate?.register()
     }
+
     
     /*
      レイアウト

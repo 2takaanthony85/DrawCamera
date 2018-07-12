@@ -73,7 +73,7 @@ class RegisterView1: UIView {
         self.addSubview(companyPasswordLabel)
         self.addSubview(companyPassword)
         self.addSubview(confirmButton)
-
+        
         var layouts = companyCodeLabelSetup
         layouts += companyCodeSetup
         layouts += companyPasswordLabelSetup
@@ -89,7 +89,6 @@ class RegisterView1: UIView {
     private func confirmButtonTapped(_ sender: UIButton) {
         self.delegate?.confirm()
     }
-    
     
     /*
      レイアウト

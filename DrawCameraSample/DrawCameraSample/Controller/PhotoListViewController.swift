@@ -35,7 +35,6 @@ class PhotoListViewController: UIViewController, CameraButtonDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
     func showCamera() {

@@ -35,11 +35,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         self.view.addSubview(loginView)
         NSLayoutConstraint.activate(loginViewSetup)
         
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        //self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
     //return押された時
