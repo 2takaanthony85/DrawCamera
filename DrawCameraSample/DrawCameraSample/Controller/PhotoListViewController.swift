@@ -22,8 +22,10 @@ class PhotoListViewController: UIViewController, CameraButtonDelegate {
         let rightBarButton = UIBarButtonItem(title: "選択", style: .plain, target: self, action: #selector(rightBarButtonTapeed(_:)))
         self.navigationItem.rightBarButtonItem = rightBarButton
         
-        let conVC = ContainerViewController()
-        displayContainerView(conVC)
+        //let conVC = ContainerViewController()
+        let storyboard = UIStoryboard(name: "CollectionView", bundle: nil)
+        let vc = storyboard.instantiateInitialViewController() as! ContainerViewController
+        displayContainerView(vc)
         
         self.view.addSubview(buttonsView)
         setup()
