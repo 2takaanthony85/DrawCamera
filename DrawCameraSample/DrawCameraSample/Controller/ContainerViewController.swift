@@ -31,6 +31,12 @@ class ContainerViewController: UIViewController {
         collectionView.dataSource = self
         
     }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        self.view.layoutIfNeeded()
+        collectionView.cameraRollGrid(numberOfGridPerRow: 4, gridLineSpace: CGFloat(4))
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
