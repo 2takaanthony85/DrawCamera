@@ -20,3 +20,33 @@ extension UINavigationController {
     }
     
 }
+
+extension UICollectionView {
+    
+    public func cameraRollGrid(numberOfGridPerRow: Int, gridLineSpace space: CGFloat) {
+        let inset = UIEdgeInsets(top: space, left: space, bottom: space, right: space)
+        cameraRollGrid(numberOfGridPerRow: numberOfGridPerRow, gridLineSpace: space, sectionInset: inset)
+    }
+    
+    private func cameraRollGrid(numberOfGridPerRow: Int, gridLineSpace space: CGFloat, sectionInset inset: UIEdgeInsets) {
+        guard let layout = collectionViewLayout as? UICollectionViewFlowLayout else {
+            return
+        }
+        guard numberOfGridPerRow > 0 else {
+            return
+        }
+        var length = self.frame.width
+        length -= space * CGFloat(numberOfGridPerRow - 1)
+        length -= (inset.left + inset.right)
+        let side = length / CGFloat(numberOfGridPerRow)
+        guard side > 0 else {
+            return
+        }
+        layout.itemSize = CGSize(width: side, height: side)
+        layout.minimumLineSpacing = space
+        layout.minimumInteritemSpacing = space
+        layout.sectionInset = inset
+        layout.invalidateLayout()
+    }
+    
+}
