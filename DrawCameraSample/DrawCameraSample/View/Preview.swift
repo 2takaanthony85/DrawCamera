@@ -172,7 +172,9 @@ class Preview: UIView {
     //コメントラベル
     private var commentLabel: UILabel!
     //コメントラベルを一時的に保存しておく配列
-    private var commentLabels: [UILabel] = []
+    private var commentLabels: [String: UILabel] = [:]
+    //移動用のラベル
+    private var moveLabel: UILabel!
     
     init(frame: CGRect, image: Data) {
         super.init(frame: frame)
@@ -262,7 +264,7 @@ class Preview: UIView {
         //キャプチャ前にボタンを隠す
         buttonsHidden()
         //保存
-        self.delegate?.savePhoto()
+        self.delegate?.savePhoto(commentLabels, layers)
         //閉じる
         self.delegate?.closeViewController()
     }
@@ -292,23 +294,30 @@ class Preview: UIView {
         commentLabel.textAlignment = .center
         commentLabel.sizeToFit()
         commentLabel.isUserInteractionEnabled = true
-        //self.imageView.addSubview(commentLabel)
         self.addSubview(commentLabel)
-        commentLabels.append(commentLabel)
+        commentLabels[text] = commentLabel
     }
     
     //タップ時の位置によって線の描画か、コメントの移動か判断する
     private func modeChange(_ location: CGPoint) {
-        if commentLabel != nil {
-            if location.x < commentLabel.frame.maxX && location.x > commentLabel.frame.origin.x && location.y < commentLabel.frame.maxY && location.y > commentLabel.frame.origin.y {
-                tapPoint = .Label
-            } else {
-                tapPoint = .SharpLayer
-                makePathLayer()
-            }
-        } else {
-            tapPoint = .SharpLayer
+        tapPoint = .SharpLayer
+        guard commentLabel != nil else {
             makePathLayer()
+            return
+        }
+        commentLabels.forEach {
+            print("$0 : \($0.value.frame)")
+            if location.x < $0.value.frame.maxX && location.x > $0.value.frame.origin.x && location.y < $0.value.frame.maxY && location.y > $0.value.frame.origin.y {
+                tapPoint = .Label
+                print("tap point label")
+                moveLabel = $0.value
+            }
+        }
+        switch tapPoint {
+        case .SharpLayer:
+            makePathLayer()
+        default:
+            break
         }
     }
     
@@ -354,8 +363,8 @@ class Preview: UIView {
             defer { beforePoint = location }
             
             if tapPoint == .Label {
-                commentLabel.frame = commentLabel.frame.offsetBy(dx: location.x - beforePoint.x, dy: location.y - beforePoint.y)
-                judgePortraitFrame(commentLabel)
+                moveLabel.frame = moveLabel.frame.offsetBy(dx: location.x - beforePoint.x, dy: location.y - beforePoint.y)
+                judgePortraitFrame(moveLabel)
             } else {
                 drawLine(location)
             }
@@ -369,8 +378,8 @@ class Preview: UIView {
             defer { beforePoint = location }
             
             if tapPoint == .Label {
-                commentLabel.frame = commentLabel.frame.offsetBy(dx: location.x - beforePoint.x, dy: location.y - beforePoint.y)
-                judgePortraitFrame(commentLabel)
+                moveLabel.frame = moveLabel.frame.offsetBy(dx: location.x - beforePoint.x, dy: location.y - beforePoint.y)
+                judgePortraitFrame(moveLabel)
             } else {
                 drawLine(location)
             }

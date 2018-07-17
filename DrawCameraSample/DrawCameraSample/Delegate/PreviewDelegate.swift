@@ -7,11 +7,12 @@
 //
 
 import Foundation
+import UIKit
 
 protocol PreviewDelegate: class {
     
     //写真の保存
-    func savePhoto()
+    func savePhoto(_ labels:[String: UILabel], _ layers: [CAShapeLayer])
     
     //viewControllerを閉じる
     func closeViewController()

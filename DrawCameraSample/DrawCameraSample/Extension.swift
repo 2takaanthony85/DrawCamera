@@ -48,5 +48,21 @@ extension UICollectionView {
         layout.sectionInset = inset
         layout.invalidateLayout()
     }
+}
+
+extension UIImage {
+    
+    func makeThumbnail() -> UIImage {
+        let thumbnailSize = CGSize(width: 100, height: 100)
+        
+        defer { UIGraphicsEndImageContext() }
+        
+        //コンテキスト開始
+        UIGraphicsBeginImageContextWithOptions(thumbnailSize, false, 0.0)
+        draw(in: CGRect(origin: .zero, size: thumbnailSize))
+        let image = UIGraphicsGetImageFromCurrentImageContext()!
+        return image
+        
+    }
     
 }
