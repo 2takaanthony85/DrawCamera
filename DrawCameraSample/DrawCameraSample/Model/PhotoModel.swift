@@ -46,7 +46,7 @@ class PhotoModel: PhotoModelInterface {
         notify()
     }
     
-    func makePhoto(_ data: Data) -> Photo {
+    private func makePhoto(_ data: Data) -> Photo {
         let object = Photo.create()
         object.create_date = Date()
         print("Date: \(Date())")
@@ -54,7 +54,7 @@ class PhotoModel: PhotoModelInterface {
         return object
     }
     
-    func getShootingDate() -> Results<ShootingDate> {
+    private func getShootingDate() -> Results<ShootingDate> {
         let realm = try! Realm()
         let results = realm.objects(ShootingDate.self)
         let today = DateFormat.format.string(from: Date())
