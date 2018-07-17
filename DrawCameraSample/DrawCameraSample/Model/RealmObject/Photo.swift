@@ -15,11 +15,11 @@ class Photo: Object {
     
     @objc dynamic var photo_data: Data = Data()
     
-    //@objc dynamic var comment: String = ""
+    @objc dynamic var process_data_path: String = ""
     
     @objc dynamic var create_date: Date = Date()
     
-    //@objc dynamic var update_date: Date = Date()
+    @objc dynamic var thumbnail_data: Data = Data()
     
     override static func primaryKey() -> String? {
         return "photo_id"

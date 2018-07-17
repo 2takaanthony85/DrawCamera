@@ -49,6 +49,7 @@
 		6EC882D720EB7452006B79BD /* PreviewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC882D620EB7452006B79BD /* PreviewDelegate.swift */; };
 		6EE329F620FDBE2500E9ECD6 /* DateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE329F520FDBE2500E9ECD6 /* DateFormat.swift */; };
 		6EE329F820FDC2EA00E9ECD6 /* Results.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE329F720FDC2EA00E9ECD6 /* Results.swift */; };
+		6EE329FA20FDE9A800E9ECD6 /* ProcessData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE329F920FDE9A800E9ECD6 /* ProcessData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,6 +118,7 @@
 		6EC882D620EB7452006B79BD /* PreviewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewDelegate.swift; sourceTree = "<group>"; };
 		6EE329F520FDBE2500E9ECD6 /* DateFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormat.swift; sourceTree = "<group>"; };
 		6EE329F720FDC2EA00E9ECD6 /* Results.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Results.swift; sourceTree = "<group>"; };
+		6EE329F920FDE9A800E9ECD6 /* ProcessData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				6E85A04020FDAD17006931F8 /* PhotoList.swift */,
+				6EE329F920FDE9A800E9ECD6 /* ProcessData.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -463,6 +466,7 @@
 				6E0E1F1020F61BE900898E91 /* RegisterViewController1.swift in Sources */,
 				6EE329F820FDC2EA00E9ECD6 /* Results.swift in Sources */,
 				6EA8C6AE20F6F4B200DF5EDC /* ReturnButton.swift in Sources */,
+				6EE329FA20FDE9A800E9ECD6 /* ProcessData.swift in Sources */,
 				6E85A04720FDAE7C006931F8 /* PhotoModel.swift in Sources */,
 				6E59A7C420F4DA130056286B /* CameraButtonDelegate.swift in Sources */,
 				6E0E1F1220F61BF900898E91 /* RegisterViewController2.swift in Sources */,

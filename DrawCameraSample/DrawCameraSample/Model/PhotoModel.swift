@@ -8,6 +8,7 @@
 
 import Foundation
 import RealmSwift
+import UIKit
 
 protocol PhotoModelNotify: class {
     
@@ -18,19 +19,24 @@ protocol PhotoModelNotify: class {
 
 protocol PhotoModelInterface: PhotoModelNotify {
     
-    func saveData(_ imageData: Data)
+    func saveData(_ originalData: Data, _ labels: [String: UILabel], _ layers: [CAShapeLayer], _ thumbnailData: Data)
 }
 
 class PhotoModel: PhotoModelInterface {
     
     init() {}
     
-    func saveData(_ imageData: Data) {
-        print("save photo")
+    func saveData(_ originalData: Data, _ labels: [String : UILabel], _ layers: [CAShapeLayer], _ thumbnailData: Data) {
         let realm = try! Realm()
         //取得
-        let photo = makePhoto(imageData)
+        let photo = makePhoto(originalData, thumbnailData)
         let date = getShootingDate()
+        
+        //object
+        let process = ProcessData.init(labels, layers)
+        let archivePath = makeFilePath(photo.create_date, photo.photo_id)
+        photo.process_data_path = archivePath
+        
         //保存
         switch date {
         case let .There(result):
@@ -43,17 +49,41 @@ class PhotoModel: PhotoModelInterface {
                 realm.add(result)
             }
         }
+        NSKeyedArchiver.archiveRootObject(process, toFile: archivePath)
+        
+        //取得できるか確認
+        getObject(archivePath)
+        
         notify()
     }
     
-    private func makePhoto(_ data: Data) -> Photo {
+    //確認用
+    func getObject(_ path: String) {
+        print("archive path: \(path)")
+        let obj = NSKeyedUnarchiver.unarchiveObject(withFile: path) as! ProcessData
+        print("labels : \(obj.labels)")
+    }
+
+    //オブジェクトを保存するファイルのパスを生成
+    private func makeFilePath(_ date: Date, _ id: Int) -> String {
+        let documentDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+        let dateStr = DateFormat.fileFormat.string(from: date)
+        let fileName = dateStr + "_" + String(id) + ".dat"
+        let archiveURL = URL(fileURLWithPath: documentDir).appendingPathComponent(fileName)
+        return archiveURL.path
+    }
+    
+    //realm objectのPhotoを生成
+    private func makePhoto(_ data: Data, _ thumbnail: Data) -> Photo {
         let object = Photo.create()
         object.create_date = Date()
         print("Date: \(Date())")
         object.photo_data = data
+        object.thumbnail_data = thumbnail
         return object
     }
     
+    //realm objectのShootingDateを生成
     private func getShootingDate() -> Results<ShootingDate> {
         let realm = try! Realm()
         let results = realm.objects(ShootingDate.self)
@@ -90,12 +120,18 @@ extension PhotoModel: PhotoModelNotify {
     }
     
     func notify() {
+        //保存できているか確認
+        getDB()
+        NotificationCenter.default.post(name: NSNotification.Name("saveResult"), object: nil)
+    }
+    
+    //確認用
+    func getDB() {
         let realm = try! Realm()
         let results = realm.objects(Photo.self)
         print("results count: \(results.count)")
         let _results = realm.objects(ShootingDate.self)
         print("_results count: \(_results.count)")
-        NotificationCenter.default.post(name: NSNotification.Name("saveResult"), object: nil)
     }
     
 }

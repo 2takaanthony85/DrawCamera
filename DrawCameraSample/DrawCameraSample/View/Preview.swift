@@ -264,7 +264,7 @@ class Preview: UIView {
         //キャプチャ前にボタンを隠す
         buttonsHidden()
         //保存
-        self.delegate?.savePhoto()
+        self.delegate?.savePhoto(commentLabels, layers)
         //閉じる
         self.delegate?.closeViewController()
     }

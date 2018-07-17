@@ -17,5 +17,13 @@ struct DateFormat {
         _formatter.dateFormat = "yyyy/MM/dd"
         return _formatter
     }()
+    
+    static var fileFormat: DateFormatter = {
+        let _formatter = DateFormatter()
+        _formatter.locale = Locale(identifier: "ja_JP")
+        _formatter.timeZone = TimeZone(identifier: "Asia/Tokyo")
+        _formatter.dateFormat = "yyyyMMdd"
+        return _formatter
+    }()
 
 }

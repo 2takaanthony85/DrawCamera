@@ -7,12 +7,13 @@
 //
 
 import Foundation
+import UIKit
 
 protocol PreviewPresentable: class {
     
     var view: PreviewType? { get }
     
-    func savePhoto(_ data: Data)
+    func savePhoto(originalData data: Data, _ labels: [String: UILabel], _ layers: [CAShapeLayer], thumbnailData thumbnail: Data)
 
 }
 
@@ -32,8 +33,8 @@ class PreviewPresenter: PreviewPresentable {
         model.removeObserver(self)
     }
     
-    func savePhoto(_ data: Data) {
-        model.saveData(data)
+    func savePhoto(originalData data: Data, _ labels: [String : UILabel], _ layers: [CAShapeLayer], thumbnailData thumbnail: Data) {
+        model.saveData(data, labels, layers, thumbnail)
     }
     
     @objc func saveResult() {

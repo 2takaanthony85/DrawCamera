@@ -32,8 +32,14 @@ class PreviewController: UIViewController, PreviewDelegate, PreviewType {
         _ = presenter
     }
     
-    //写真の保存
-    func savePhoto() {
+    func savePhoto(_ labels: [String : UILabel], _ layers: [CAShapeLayer]) {
+        let photo = processPhoto()
+        let thumbnail = photo.makeThumbnail()
+        let thumbnailData = UIImageJPEGRepresentation(thumbnail, 1.0)
+        presenter.savePhoto(originalData: photoData, labels, layers, thumbnailData: thumbnailData!)
+    }
+    
+    private func processPhoto() -> UIImage {
         //コンテキスト開始
         UIGraphicsBeginImageContextWithOptions(UIScreen.main.bounds.size, false, 0.0)
         //viewを書き出す
@@ -44,8 +50,8 @@ class PreviewController: UIViewController, PreviewDelegate, PreviewType {
         UIGraphicsEndImageContext()
         // imageをカメラロールに保存
         UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
-        //DBにも保存
-        presenter.savePhoto(UIImageJPEGRepresentation(image, 1.0)!)
+        
+        return image
     }
     
     func closeViewController() {
