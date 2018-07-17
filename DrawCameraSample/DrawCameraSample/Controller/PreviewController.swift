@@ -8,12 +8,19 @@
 
 import UIKit
 
-class PreviewController: UIViewController, PreviewDelegate {
+protocol PreviewType: class {
+    var presenter: PreviewPresentable { get }
+    func saveNotification()
+}
+
+class PreviewController: UIViewController, PreviewDelegate, PreviewType {
     
     //撮影写真のデータ
     var photoData: Data!
     
     private var preview: Preview!
+    
+    private(set) lazy var presenter: PreviewPresentable = PreviewPresenter(self)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +29,7 @@ class PreviewController: UIViewController, PreviewDelegate {
         preview.delegate = self
         self.view.addSubview(preview)
         
+        _ = presenter
     }
     
     //写真の保存
@@ -36,6 +44,8 @@ class PreviewController: UIViewController, PreviewDelegate {
         UIGraphicsEndImageContext()
         // imageをカメラロールに保存
         UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+        //DBにも保存
+        presenter.savePhoto(UIImageJPEGRepresentation(image, 1.0)!)
     }
     
     func closeViewController() {
@@ -63,8 +73,11 @@ class PreviewController: UIViewController, PreviewDelegate {
     }
     
     
+    func saveNotification() {
+        print("save notifications")
+    }
     
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
