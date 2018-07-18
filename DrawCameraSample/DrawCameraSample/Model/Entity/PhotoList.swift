@@ -8,14 +8,17 @@
 
 import Foundation
 
-struct Photos {
+struct PhotoData {
     
-    let photo: Photo
+    let photo: Data
+    
+    let thumbnail: Data
     
     let process: ProcessData
     
-    init(_ photo: Photo, _ process: ProcessData) {
+    init(_ photo: Data, _ thumbnail: Data, _ process: ProcessData) {
         self.photo = photo
+        self.thumbnail = thumbnail
         self.process = process
     }
 }
@@ -24,10 +27,10 @@ struct PhotoList {
     
     let date: Date
     
-    let photos: [Photos]
+    let photoDatas: [PhotoData]
     
-    init(_ date: Date, photos: [Photos]) {
+    init(_ date: Date, photoDatas: [PhotoData]) {
         self.date = date
-        self.photos = photos
+        self.photoDatas = photoDatas
     }
 }

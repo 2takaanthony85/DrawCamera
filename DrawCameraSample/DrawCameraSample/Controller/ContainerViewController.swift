@@ -8,9 +8,17 @@
 
 import UIKit
 
+protocol ContainerViewType: class {
+    
+    func reloadData()
+    
+}
+
 class ContainerViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    private lazy var presenter: ContainerViewPresentable = ContainerViewPresenter.init(self)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,12 +38,25 @@ class ContainerViewController: UIViewController {
 
         collectionView.dataSource = self
         
+        getPhotos()
     }
     
     override func viewDidLayoutSubviews() {
+        print("view did layout subviews")
         super.viewDidLayoutSubviews()
         self.view.layoutIfNeeded()
         collectionView.cameraRollGrid(numberOfGridPerRow: 4, gridLineSpace: CGFloat(4))
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        print("view did appear")
+        super.viewDidAppear(animated)
+        getPhotos()
+    }
+    
+    func getPhotos() {
+        presenter.updateDatas()
+        collectionView.refreshControl?.beginRefreshing()
     }
 
     override func didReceiveMemoryWarning() {
@@ -45,23 +66,34 @@ class ContainerViewController: UIViewController {
 
 }
 
+extension ContainerViewController: ContainerViewType {
+    
+    func reloadData() {
+        collectionView.refreshControl?.endRefreshing()
+        collectionView.reloadData()
+    }
+    
+}
+
 extension ContainerViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         print("number of item sections")
-        return 17
+        return presenter.itemSections(section)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         print("cell for item at")
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewCell", for: indexPath) as! CollectionViewCell
-        cell.imageView.image = UIImage(named: "スラムダンク.jpeg")
+        let data = presenter.cellImage(indexPath.section, indexPath)
+        cell.imageView.image = UIImage(data: data)!
         return cell
     }
     
+    //セクション数
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         print("sections")
-        return 10
+        return presenter.sections
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -70,7 +102,7 @@ extension ContainerViewController: UICollectionViewDataSource {
         }
         
         if kind == UICollectionElementKindSectionHeader {
-            header.label.text = "section \(indexPath.section)"
+            header.label.text = presenter.sectionText(indexPath)
             header.setup()
             print("header")
             return header

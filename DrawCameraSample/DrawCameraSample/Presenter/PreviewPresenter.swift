@@ -21,11 +21,11 @@ class PreviewPresenter: PreviewPresentable {
     
     private(set) weak var view: PreviewType?
     
-    private let model: PhotoModelInterface
+    private let model: PhotoSaveModelInterface
     
     init(_ view: PreviewType) {
         self.view = view
-        self.model = PhotoModel.init()
+        self.model = PhotoSaveModel.init()
         model.addObserver(self, selector: #selector(saveResult))
     }
     

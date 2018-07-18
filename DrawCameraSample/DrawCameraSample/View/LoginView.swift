@@ -49,7 +49,6 @@ class LoginView: UIView {
     }()
     
     private let passwordLabel: UILabel = {
-        print("あほ")
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "パスワード"
