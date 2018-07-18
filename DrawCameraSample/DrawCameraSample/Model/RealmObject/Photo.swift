@@ -37,10 +37,13 @@ class Photo: Object {
     
     private static func lastID() -> Int {
         let realm = try! Realm()
-        if let object = realm.objects(Photo.self).last {
-            return object.photo_id + 1
-        } else {
-            return 1
+        var maxID = 0
+        let results = realm.objects(Photo.self)
+        results.forEach {
+            if maxID < $0.photo_id {
+                maxID = $0.photo_id
+            }
         }
+        return maxID + 1
     }
 }

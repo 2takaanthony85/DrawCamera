@@ -21,6 +21,10 @@ protocol ContainerViewPresentable: class {
     func sectionText(_ indexPath: IndexPath) -> String
     
     func cellImage(_ section: Int ,_ indexPath: IndexPath) -> Data
+    
+    func didSelectRow(in section: Int, at indexPath: IndexPath)
+    
+    func deleteDatas(_ indexPaths: [(Int, Int)])
 }
 
 class ContainerViewPresenter: ContainerViewPresentable {
@@ -37,6 +41,12 @@ class ContainerViewPresenter: ContainerViewPresentable {
         self.view = view
         self.model = PhotoModel.init()
         self.model.addObserver(self, selector: #selector(refleshDatas))
+        self.model.deleteObserver(self, selector: #selector(finishDelete))
+    }
+    
+    deinit {
+        self.model.removeObserver(self)
+        self.model.removeDeleteObserver(self)
     }
     
     func updateDatas() {
@@ -44,6 +54,9 @@ class ContainerViewPresenter: ContainerViewPresentable {
         model.getData()
     }
     
+    func deleteDatas(_ indexPaths: [(Int, Int)]) {
+        model.delete(indexPaths)
+    }
     
     //セクション毎のセル数を返す
     func itemSections(_ section: Int) -> Int {
@@ -64,8 +77,18 @@ class ContainerViewPresenter: ContainerViewPresentable {
         return data.thumbnail
     }
     
+    func didSelectRow(in section: Int, at indexPath: IndexPath) {
+        let element = model.photoList[section]
+        let entity = element.photoDatas[indexPath.row]
+        view?.navigateVC(entity)
+    }
+    
     @objc func refleshDatas() {
         view?.reloadData()
+    }
+    
+    @objc func finishDelete() {
+        view?.reloadDataAfterDelete()
     }
     
 }

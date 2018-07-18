@@ -12,10 +12,12 @@ class CollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var imageView: UIImageView!
     
-
-//    override func awakeFromNib() {
+    @IBOutlet weak var checkView: UIImageView!
+    //    override func awakeFromNib() {
 //        super.awakeFromNib()
 //        // Initialization code
 //    }
+
+    
 
 }
