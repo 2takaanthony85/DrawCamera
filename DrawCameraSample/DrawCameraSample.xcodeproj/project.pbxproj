@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		594F6E9D20FCCADE000B4F4D /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594F6E9C20FCCADE000B4F4D /* Photo.swift */; };
 		594F6E9F20FCCB05000B4F4D /* ShootingDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594F6E9E20FCCB05000B4F4D /* ShootingDate.swift */; };
-		5979286E20FA22F80057FD9B /* スラムダンク.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 5979286D20FA22F80057FD9B /* スラムダンク.jpeg */; };
 		5979287020FA25AE0057FD9B /* CollectionView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5979286F20FA25AE0057FD9B /* CollectionView.storyboard */; };
 		5979287320FA26300057FD9B /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5979287120FA26300057FD9B /* CollectionViewCell.swift */; };
 		5979287420FA26300057FD9B /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5979287220FA26300057FD9B /* CollectionViewCell.xib */; };
@@ -24,6 +23,9 @@
 		59F54F5B20EA4F2200434DD2 /* DrawCameraSampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F54F5A20EA4F2200434DD2 /* DrawCameraSampleTests.swift */; };
 		59F54F6620EA4F2200434DD2 /* DrawCameraSampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F54F6520EA4F2200434DD2 /* DrawCameraSampleUITests.swift */; };
 		59F54F7520EA50F000434DD2 /* PreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F54F7420EA50F000434DD2 /* PreviewController.swift */; };
+		6E0BCC1D20FF1C010089DD6F /* PhotoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0BCC1C20FF1C010089DD6F /* PhotoDetailViewController.swift */; };
+		6E0BCC1F20FF2BCA0089DD6F /* CheckBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0BCC1E20FF2BCA0089DD6F /* CheckBoxView.swift */; };
+		6E0BCC2120FF33060089DD6F /* check.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E0BCC2020FF33050089DD6F /* check.png */; };
 		6E0E1EEE20F5C7ED00898E91 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0E1EED20F5C7ED00898E91 /* LoginViewController.swift */; };
 		6E0E1EF420F5C82300898E91 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0E1EF320F5C82300898E91 /* LoginView.swift */; };
 		6E0E1EF620F5C83100898E91 /* RegisterView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0E1EF520F5C83100898E91 /* RegisterView1.swift */; };
@@ -36,8 +38,6 @@
 		6E59A7BC20F4C4BF0056286B /* CaptureButtonDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E59A7BB20F4C4BF0056286B /* CaptureButtonDelegate.swift */; };
 		6E59A7BE20F4CEA30056286B /* PhotoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E59A7BD20F4CEA30056286B /* PhotoListViewController.swift */; };
 		6E59A7C020F4D5EC0056286B /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E59A7BF20F4D5EC0056286B /* ContainerViewController.swift */; };
-		6E59A7C220F4D97B0056286B /* CameraButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E59A7C120F4D97B0056286B /* CameraButton.swift */; };
-		6E59A7C420F4DA130056286B /* CameraButtonDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E59A7C320F4DA130056286B /* CameraButtonDelegate.swift */; };
 		6E85A04120FDAD17006931F8 /* PhotoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E85A04020FDAD17006931F8 /* PhotoList.swift */; };
 		6E85A04520FDADEB006931F8 /* PreviewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E85A04420FDADEB006931F8 /* PreviewPresenter.swift */; };
 		6E85A04720FDAE7C006931F8 /* PhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E85A04620FDAE7C006931F8 /* PhotoModel.swift */; };
@@ -45,7 +45,6 @@
 		6EA8C6AC20F6E79600DF5EDC /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA8C6AB20F6E79600DF5EDC /* Extension.swift */; };
 		6EA8C6AE20F6F4B200DF5EDC /* ReturnButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA8C6AD20F6F4B100DF5EDC /* ReturnButton.swift */; };
 		6EA8C6B020F6F56400DF5EDC /* ReturnButtonDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA8C6AF20F6F56400DF5EDC /* ReturnButtonDelegate.swift */; };
-		6EA8C6B220F6F9E300DF5EDC /* CameraButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA8C6B120F6F9E300DF5EDC /* CameraButtonsView.swift */; };
 		6EC882D520EB7191006B79BD /* Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC882D420EB7191006B79BD /* Preview.swift */; };
 		6EC882D720EB7452006B79BD /* PreviewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC882D620EB7452006B79BD /* PreviewDelegate.swift */; };
 		6EE329F620FDBE2500E9ECD6 /* DateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE329F520FDBE2500E9ECD6 /* DateFormat.swift */; };
@@ -73,7 +72,6 @@
 /* Begin PBXFileReference section */
 		594F6E9C20FCCADE000B4F4D /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		594F6E9E20FCCB05000B4F4D /* ShootingDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShootingDate.swift; sourceTree = "<group>"; };
-		5979286D20FA22F80057FD9B /* スラムダンク.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "スラムダンク.jpeg"; sourceTree = "<group>"; };
 		5979286F20FA25AE0057FD9B /* CollectionView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CollectionView.storyboard; sourceTree = "<group>"; };
 		5979287120FA26300057FD9B /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		5979287220FA26300057FD9B /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
@@ -94,6 +92,9 @@
 		59F54F6520EA4F2200434DD2 /* DrawCameraSampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawCameraSampleUITests.swift; sourceTree = "<group>"; };
 		59F54F6720EA4F2200434DD2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		59F54F7420EA50F000434DD2 /* PreviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewController.swift; sourceTree = "<group>"; };
+		6E0BCC1C20FF1C010089DD6F /* PhotoDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailViewController.swift; sourceTree = "<group>"; };
+		6E0BCC1E20FF2BCA0089DD6F /* CheckBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxView.swift; sourceTree = "<group>"; };
+		6E0BCC2020FF33050089DD6F /* check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check.png; sourceTree = "<group>"; };
 		6E0E1EED20F5C7ED00898E91 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		6E0E1EF320F5C82300898E91 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		6E0E1EF520F5C83100898E91 /* RegisterView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView1.swift; sourceTree = "<group>"; };
@@ -106,8 +107,6 @@
 		6E59A7BB20F4C4BF0056286B /* CaptureButtonDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureButtonDelegate.swift; sourceTree = "<group>"; };
 		6E59A7BD20F4CEA30056286B /* PhotoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoListViewController.swift; sourceTree = "<group>"; };
 		6E59A7BF20F4D5EC0056286B /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
-		6E59A7C120F4D97B0056286B /* CameraButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraButton.swift; sourceTree = "<group>"; };
-		6E59A7C320F4DA130056286B /* CameraButtonDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraButtonDelegate.swift; sourceTree = "<group>"; };
 		6E85A04020FDAD17006931F8 /* PhotoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoList.swift; sourceTree = "<group>"; };
 		6E85A04420FDADEB006931F8 /* PreviewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewPresenter.swift; sourceTree = "<group>"; };
 		6E85A04620FDAE7C006931F8 /* PhotoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoModel.swift; sourceTree = "<group>"; };
@@ -115,7 +114,6 @@
 		6EA8C6AB20F6E79600DF5EDC /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		6EA8C6AD20F6F4B100DF5EDC /* ReturnButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnButton.swift; sourceTree = "<group>"; };
 		6EA8C6AF20F6F56400DF5EDC /* ReturnButtonDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnButtonDelegate.swift; sourceTree = "<group>"; };
-		6EA8C6B120F6F9E300DF5EDC /* CameraButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraButtonsView.swift; sourceTree = "<group>"; };
 		6EC882D420EB7191006B79BD /* Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preview.swift; sourceTree = "<group>"; };
 		6EC882D620EB7452006B79BD /* PreviewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewDelegate.swift; sourceTree = "<group>"; };
 		6EE329F520FDBE2500E9ECD6 /* DateFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormat.swift; sourceTree = "<group>"; };
@@ -213,7 +211,7 @@
 				6E59A7AC20F4A67D0056286B /* Controller */,
 				59F54F4920EA4F2100434DD2 /* Main.storyboard */,
 				5979286F20FA25AE0057FD9B /* CollectionView.storyboard */,
-				5979286D20FA22F80057FD9B /* スラムダンク.jpeg */,
+				6E0BCC2020FF33050089DD6F /* check.png */,
 				59F54F4C20EA4F2200434DD2 /* Assets.xcassets */,
 				59F54F4E20EA4F2200434DD2 /* LaunchScreen.storyboard */,
 				59F54F5120EA4F2200434DD2 /* Info.plist */,
@@ -247,6 +245,7 @@
 				6E0E1F1120F61BF900898E91 /* RegisterViewController2.swift */,
 				6E59A7BD20F4CEA30056286B /* PhotoListViewController.swift */,
 				6E59A7BF20F4D5EC0056286B /* ContainerViewController.swift */,
+				6E0BCC1C20FF1C010089DD6F /* PhotoDetailViewController.swift */,
 				6E59A7B420F4BEDF0056286B /* CameraViewController.swift */,
 				59F54F7420EA50F000434DD2 /* PreviewController.swift */,
 			);
@@ -260,7 +259,6 @@
 				6E0E1EF320F5C82300898E91 /* LoginView.swift */,
 				6E0E1EF520F5C83100898E91 /* RegisterView1.swift */,
 				6E0E1F0D20F609C700898E91 /* RegisterView2.swift */,
-				6EA8C6B120F6F9E300DF5EDC /* CameraButtonsView.swift */,
 				6E59A7B620F4BF180056286B /* Component */,
 			);
 			path = View;
@@ -271,7 +269,6 @@
 			children = (
 				6EC882D620EB7452006B79BD /* PreviewDelegate.swift */,
 				6E59A7BB20F4C4BF0056286B /* CaptureButtonDelegate.swift */,
-				6E59A7C320F4DA130056286B /* CameraButtonDelegate.swift */,
 				6E0E1F0B20F5FED300898E91 /* LoginDelegate.swift */,
 				6EA8C6AF20F6F56400DF5EDC /* ReturnButtonDelegate.swift */,
 			);
@@ -282,12 +279,12 @@
 			isa = PBXGroup;
 			children = (
 				6E59A7B920F4C10D0056286B /* CaptureButton.swift */,
-				6E59A7C120F4D97B0056286B /* CameraButton.swift */,
 				6EA8C6AD20F6F4B100DF5EDC /* ReturnButton.swift */,
 				5979287120FA26300057FD9B /* CollectionViewCell.swift */,
 				5979287220FA26300057FD9B /* CollectionViewCell.xib */,
 				5979287B20FA53510057FD9B /* CollectionHeader.swift */,
 				5979287C20FA53510057FD9B /* CollectionHeader.xib */,
+				6E0BCC1E20FF2BCA0089DD6F /* CheckBoxView.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -415,8 +412,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5979286E20FA22F80057FD9B /* スラムダンク.jpeg in Resources */,
 				59F54F5020EA4F2200434DD2 /* LaunchScreen.storyboard in Resources */,
+				6E0BCC2120FF33060089DD6F /* check.png in Resources */,
 				5979287E20FA53510057FD9B /* CollectionHeader.xib in Resources */,
 				5979287420FA26300057FD9B /* CollectionViewCell.xib in Resources */,
 				5979287020FA25AE0057FD9B /* CollectionView.storyboard in Resources */,
@@ -472,7 +469,6 @@
 				6EA8C6AE20F6F4B200DF5EDC /* ReturnButton.swift in Sources */,
 				6EE329FA20FDE9A800E9ECD6 /* ProcessData.swift in Sources */,
 				6E85A04720FDAE7C006931F8 /* PhotoModel.swift in Sources */,
-				6E59A7C420F4DA130056286B /* CameraButtonDelegate.swift in Sources */,
 				6E0E1F1220F61BF900898E91 /* RegisterViewController2.swift in Sources */,
 				5979287D20FA53510057FD9B /* CollectionHeader.swift in Sources */,
 				6EE329F620FDBE2500E9ECD6 /* DateFormat.swift in Sources */,
@@ -482,18 +478,18 @@
 				594F6E9F20FCCB05000B4F4D /* ShootingDate.swift in Sources */,
 				6E85A04520FDADEB006931F8 /* PreviewPresenter.swift in Sources */,
 				6E59A7BC20F4C4BF0056286B /* CaptureButtonDelegate.swift in Sources */,
-				6E59A7C220F4D97B0056286B /* CameraButton.swift in Sources */,
 				6E59A7C020F4D5EC0056286B /* ContainerViewController.swift in Sources */,
 				6E0E1F0E20F609C700898E91 /* RegisterView2.swift in Sources */,
+				6E0BCC1F20FF2BCA0089DD6F /* CheckBoxView.swift in Sources */,
 				6E59A7BA20F4C10D0056286B /* CaptureButton.swift in Sources */,
 				6EC882D720EB7452006B79BD /* PreviewDelegate.swift in Sources */,
 				6E85A04120FDAD17006931F8 /* PhotoList.swift in Sources */,
 				6E59A7BE20F4CEA30056286B /* PhotoListViewController.swift in Sources */,
 				6EC882D520EB7191006B79BD /* Preview.swift in Sources */,
+				6E0BCC1D20FF1C010089DD6F /* PhotoDetailViewController.swift in Sources */,
 				6EA8C6B020F6F56400DF5EDC /* ReturnButtonDelegate.swift in Sources */,
 				6EA8C6AC20F6E79600DF5EDC /* Extension.swift in Sources */,
 				6E0E1EEE20F5C7ED00898E91 /* LoginViewController.swift in Sources */,
-				6EA8C6B220F6F9E300DF5EDC /* CameraButtonsView.swift in Sources */,
 				59F54F4620EA4F2100434DD2 /* AppDelegate.swift in Sources */,
 				6E59A7B520F4BEDF0056286B /* CameraViewController.swift in Sources */,
 				6E0E1EF420F5C82300898E91 /* LoginView.swift in Sources */,

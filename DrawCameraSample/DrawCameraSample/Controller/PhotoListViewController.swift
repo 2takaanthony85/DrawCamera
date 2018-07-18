@@ -8,34 +8,62 @@
 
 import UIKit
 
-class PhotoListViewController: UIViewController, CameraButtonDelegate {
+class PhotoListViewController: UIViewController {
     
-    private lazy var buttonsView: CameraButtonsView = {
-       let buttonsView = CameraButtonsView(frame: self.view.frame)
-        buttonsView.cameraButton.delegate = self
-        return buttonsView
+    private lazy var cameraButton: UIBarButtonItem = {
+        let button = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.camera, target: self, action: #selector(startCamera))
+        return button
     }()
+    
+    private lazy var trashButton: UIBarButtonItem = {
+        let button = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.trash, target: viewController.self, action: #selector(viewController.deleteNotification))
+        button.isEnabled = false
+        return button
+    }()
+    
+    private lazy var flexibleSpace: UIBarButtonItem = {
+       let space = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
+        return space
+    }()
+    
+    private lazy var uploadButton: UIBarButtonItem = {
+        let button = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.action, target: nil, action: nil)
+        return button
+    }()
+    
+    private lazy var toolBar: UIToolbar = {
+       let bar = UIToolbar(frame: CGRect(x: 0, y: self.view.frame.height - 45, width: self.view.frame.width, height: 45))
+        bar.items = [uploadButton, flexibleSpace, cameraButton, flexibleSpace, trashButton]
+        return bar
+    }()
+    
+    private var viewController: ContainerViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let rightBarButton = UIBarButtonItem(title: "選択", style: .plain, target: self, action: #selector(rightBarButtonTapeed(_:)))
-        self.navigationItem.rightBarButtonItem = rightBarButton
         
-        //let conVC = ContainerViewController()
         let storyboard = UIStoryboard(name: "CollectionView", bundle: nil)
-        let vc = storyboard.instantiateInitialViewController() as! ContainerViewController
-        displayContainerView(vc)
+        viewController = storyboard.instantiateInitialViewController() as! ContainerViewController
+        displayContainerView(viewController)
         
-        self.view.addSubview(buttonsView)
-        setup()
+        let selectButton = UIBarButtonItem(title: "選択", style: .plain, target: viewController.self, action: #selector(viewController.rightBarButtonTapped))
+        self.navigationItem.rightBarButtonItem = selectButton
+        
+        self.view.addSubview(toolBar)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(editingMode), name: NSNotification.Name("editing"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(endEditingMode), name: NSNotification.Name("endEditing"), object: nil)
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    @objc
+    private func endEditingMode() {
+        trashButton.isEnabled = false
+        let selectButton = UIBarButtonItem(title: "選択", style: .plain, target: viewController.self, action: #selector(viewController.rightBarButtonTapped))
+        self.navigationItem.rightBarButtonItem = selectButton
     }
     
-    func showCamera() {
+    @objc
+    private func startCamera() {
         let cameraVC = CameraViewController()
         let navi = UINavigationController(rootViewController: cameraVC)
         self.present(navi, animated: true, completion: nil)
@@ -48,15 +76,11 @@ class PhotoListViewController: UIViewController, CameraButtonDelegate {
         vc.didMove(toParentViewController: self)
     }
     
-    @objc private func rightBarButtonTapeed(_ sender: UIButton) {
-        self.setEditing(true, animated: true)
-    }
-    
-    private func setup() {
-        buttonsView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
-        buttonsView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
-        buttonsView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
-        buttonsView.heightAnchor.constraint(equalToConstant: 100).isActive = true
+    @objc
+    private func editingMode() {
+        let cancelButton = UIBarButtonItem(title: "cancel", style: .done, target: viewController.self, action: #selector(viewController.cancelButtonTapped))
+        self.navigationItem.rightBarButtonItem = cancelButton
+        trashButton.isEnabled = true
     }
     
     override func didReceiveMemoryWarning() {

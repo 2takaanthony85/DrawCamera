@@ -32,7 +32,13 @@ protocol PhotoModelInterface: PhotoModelNotify {
     
     func update()
     
-    func delete()
+    func delete(_ indexPaths: [(section: Int, row: Int)])
+    
+    func deleteObserver(_ observer: Any, selector: Selector)
+    
+    func removeDeleteObserver(_ observer: Any)
+    
+    func deleteNotify()
 }
 
 class PhotoSaveModel: PhotoSaveModelInterface {
@@ -40,16 +46,19 @@ class PhotoSaveModel: PhotoSaveModelInterface {
     init() {}
     
     func saveData(_ originalData: Data, _ labels: [String : UILabel], _ layers: [CAShapeLayer], _ thumbnailData: Data) {
-        let realm = try! Realm()
+        //確認用
+        getDB()
         
+        let realm = try! Realm()
+
         //object
         let process = ProcessData.init(labels, layers)
-        
+
         //取得
         let photo = makePhoto(originalData, thumbnailData)
         photo.process_data = NSKeyedArchiver.archivedData(withRootObject: process)
         let date = getShootingDate()
-        
+
         //保存
         switch date {
         case let .There(result):
@@ -132,13 +141,14 @@ extension PhotoSaveModel: PhotoModelNotify {
     func getDB() {
         let realm = try! Realm()
         let results = realm.objects(Photo.self)
-        print("results count: \(results.count)")
+        print("Photo count: \(results.count)")
         let _results = realm.objects(ShootingDate.self)
-        print("_results count: \(_results.count)")
+        print("ShootingDate count: \(_results.count)")
         results.forEach {
-            let obj = NSKeyedUnarchiver.unarchiveObject(with: $0.process_data) as! ProcessData
-            print("process data labels : \(obj.labels)")
-            print("process data layers : \(obj.layers)")
+//            let obj = NSKeyedUnarchiver.unarchiveObject(with: $0.process_data) as! ProcessData
+//            print("process data labels : \(obj.labels)")
+//            print("process data layers : \(obj.layers)")
+            print("id : \($0.photo_id)")
         }
     }
 }
@@ -162,7 +172,7 @@ class PhotoModel: PhotoModelInterface {
             var photoDatas: [PhotoData] = []
             data.photos.forEach({ (photo) -> Void in
                 let process = NSKeyedUnarchiver.unarchiveObject(with: photo.process_data) as! ProcessData
-                let photoData = PhotoData.init(photo.photo_data, photo.thumbnail_data, process)
+                let photoData = PhotoData.init(photo.photo_id, photo.photo_data, photo.thumbnail_data, process)
                 photoDatas.append(photoData)
             })
             let photoListElement = PhotoList.init(data.snap_date, photoDatas: photoDatas)
@@ -175,8 +185,37 @@ class PhotoModel: PhotoModelInterface {
         print("a")
     }
     
-    func delete() {
-        print("b")
+    func delete(_ indexPaths: [(section: Int, row: Int)]) {
+        var ids: [Int] = []
+        indexPaths.forEach {
+            let id = photoList[$0.section].photoDatas[$0.row].id
+            ids.append(id)
+        }
+        guard ids.count != 0 else {
+            return
+        }
+        let realm = try! Realm()
+        ids.forEach({ (id) -> Void in
+            let results = realm.objects(Photo.self).filter("photo_id = \(id)")
+            results.forEach { (result) -> Void in
+                try! realm.write {
+                    realm.delete(result)
+                }
+            }
+        })
+        deleteNotify()
+    }
+    
+    func deleteObserver(_ observer: Any, selector: Selector) {
+        NotificationCenter.default.addObserver(observer, selector: selector, name: NSNotification.Name("delete"), object: nil)
+    }
+    
+    func removeDeleteObserver(_ observer: Any) {
+        NotificationCenter.default.removeObserver(observer)
+    }
+    
+    func deleteNotify() {
+        NotificationCenter.default.post(name: NSNotification.Name("delete"), object: nil)
     }
 }
 

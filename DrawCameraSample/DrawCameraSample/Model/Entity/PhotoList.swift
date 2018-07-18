@@ -10,13 +10,16 @@ import Foundation
 
 struct PhotoData {
     
+    let id: Int
+    
     let photo: Data
     
     let thumbnail: Data
     
     let process: ProcessData
     
-    init(_ photo: Data, _ thumbnail: Data, _ process: ProcessData) {
+    init(_ id: Int, _ photo: Data, _ thumbnail: Data, _ process: ProcessData) {
+        self.id = id
         self.photo = photo
         self.thumbnail = thumbnail
         self.process = process
