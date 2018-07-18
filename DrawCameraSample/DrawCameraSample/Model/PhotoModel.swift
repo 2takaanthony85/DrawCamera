@@ -28,14 +28,14 @@ class PhotoModel: PhotoModelInterface {
     
     func saveData(_ originalData: Data, _ labels: [String : UILabel], _ layers: [CAShapeLayer], _ thumbnailData: Data) {
         let realm = try! Realm()
-        //取得
-        let photo = makePhoto(originalData, thumbnailData)
-        let date = getShootingDate()
         
         //object
         let process = ProcessData.init(labels, layers)
-        let archivePath = makeFilePath(photo.create_date, photo.photo_id)
-        photo.process_data_path = archivePath
+        
+        //取得
+        let photo = makePhoto(originalData, thumbnailData)
+        photo.process_data = NSKeyedArchiver.archivedData(withRootObject: process)
+        let date = getShootingDate()
         
         //保存
         switch date {
@@ -49,19 +49,8 @@ class PhotoModel: PhotoModelInterface {
                 realm.add(result)
             }
         }
-        NSKeyedArchiver.archiveRootObject(process, toFile: archivePath)
-        
-        //取得できるか確認
-        getObject(archivePath)
         
         notify()
-    }
-    
-    //確認用
-    func getObject(_ path: String) {
-        print("archive path: \(path)")
-        let obj = NSKeyedUnarchiver.unarchiveObject(withFile: path) as! ProcessData
-        print("labels : \(obj.labels)")
     }
 
     //オブジェクトを保存するファイルのパスを生成
@@ -122,6 +111,7 @@ extension PhotoModel: PhotoModelNotify {
     func notify() {
         //保存できているか確認
         getDB()
+        
         NotificationCenter.default.post(name: NSNotification.Name("saveResult"), object: nil)
     }
     
@@ -132,6 +122,11 @@ extension PhotoModel: PhotoModelNotify {
         print("results count: \(results.count)")
         let _results = realm.objects(ShootingDate.self)
         print("_results count: \(_results.count)")
+        results.forEach {
+            let obj = NSKeyedUnarchiver.unarchiveObject(with: $0.process_data) as! ProcessData
+            print("process data labels : \(obj.labels)")
+            print("process data layers : \(obj.layers)")
+        }
     }
     
 }
