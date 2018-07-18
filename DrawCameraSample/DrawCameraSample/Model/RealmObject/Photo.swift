@@ -13,12 +13,16 @@ class Photo: Object {
     
     @objc dynamic var photo_id: Int = 0
     
+    //オリジナルの写真データ
     @objc dynamic var photo_data: Data = Data()
     
-    @objc dynamic var process_data_path: String = ""
+    //加工データ
+    @objc dynamic var process_data: Data = Data()
     
+    //撮影日時
     @objc dynamic var create_date: Date = Date()
     
+    //サムネイル画像データ
     @objc dynamic var thumbnail_data: Data = Data()
     
     override static func primaryKey() -> String? {

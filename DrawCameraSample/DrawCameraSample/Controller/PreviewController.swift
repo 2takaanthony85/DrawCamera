@@ -9,7 +9,9 @@
 import UIKit
 
 protocol PreviewType: class {
+    
     var presenter: PreviewPresentable { get }
+    
     func saveNotification()
 }
 
