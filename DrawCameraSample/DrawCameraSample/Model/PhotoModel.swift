@@ -17,12 +17,25 @@ protocol PhotoModelNotify: class {
     
 }
 
-protocol PhotoModelInterface: PhotoModelNotify {
+protocol PhotoSaveModelInterface: PhotoModelNotify {
     
     func saveData(_ originalData: Data, _ labels: [String: UILabel], _ layers: [CAShapeLayer], _ thumbnailData: Data)
 }
 
-class PhotoModel: PhotoModelInterface {
+protocol PhotoModelInterface: PhotoModelNotify {
+    
+    var photoList: [PhotoList] { get }
+    
+    func resetData()
+    
+    func getData()
+    
+    func update()
+    
+    func delete()
+}
+
+class PhotoSaveModel: PhotoSaveModelInterface {
     
     init() {}
     
@@ -98,7 +111,7 @@ class PhotoModel: PhotoModelInterface {
     
 }
 
-extension PhotoModel: PhotoModelNotify {
+extension PhotoSaveModel: PhotoModelNotify {
     
     func addObserver(_ observer: Any, selector: Selector) {
         NotificationCenter.default.addObserver(observer, selector: selector, name: NSNotification.Name("saveResult"), object: nil)
@@ -128,5 +141,56 @@ extension PhotoModel: PhotoModelNotify {
             print("process data layers : \(obj.layers)")
         }
     }
+}
+
+class PhotoModel: PhotoModelInterface {
     
+    private(set) var photoList: [PhotoList] = []
+    
+    init() {}
+    
+    func resetData() {
+        photoList = []
+        notify()
+    }
+    
+    func getData() {
+        let realm = try! Realm()
+        
+        let dates = realm.objects(ShootingDate.self)
+        dates.forEach({ (data) -> Void in
+            var photoDatas: [PhotoData] = []
+            data.photos.forEach({ (photo) -> Void in
+                let process = NSKeyedUnarchiver.unarchiveObject(with: photo.process_data) as! ProcessData
+                let photoData = PhotoData.init(photo.photo_data, photo.thumbnail_data, process)
+                photoDatas.append(photoData)
+            })
+            let photoListElement = PhotoList.init(data.snap_date, photoDatas: photoDatas)
+            photoList.append(photoListElement)
+        })
+        notify()
+    }
+    
+    func update() {
+        print("a")
+    }
+    
+    func delete() {
+        print("b")
+    }
+}
+
+extension PhotoModel: PhotoModelNotify {
+    
+    func addObserver(_ observer: Any, selector: Selector) {
+        NotificationCenter.default.addObserver(observer, selector: selector, name: NSNotification.Name("get"), object: nil)
+    }
+    
+    func removeObserver(_ observer: Any) {
+        NotificationCenter.default.removeObserver(observer)
+    }
+    
+    func notify() {
+        NotificationCenter.default.post(name: NSNotification.Name("get"), object: nil)
+    }
 }
