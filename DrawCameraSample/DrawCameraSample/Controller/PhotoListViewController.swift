@@ -33,8 +33,18 @@ class PhotoListViewController: UIViewController {
     
     private lazy var toolBar: UIToolbar = {
        let bar = UIToolbar(frame: CGRect(x: 0, y: self.view.frame.height - 45, width: self.view.frame.width, height: 45))
+        bar.translatesAutoresizingMaskIntoConstraints = false
         bar.items = [uploadButton, flexibleSpace, cameraButton, flexibleSpace, accountEdit, flexibleSpace, trashButton]
         return bar
+    }()
+    
+    private lazy var toolBarSetup: [NSLayoutConstraint] = {
+        var layouts: [NSLayoutConstraint] = []
+        layouts.append(toolBar.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor))
+        layouts.append(toolBar.leadingAnchor.constraint(equalTo: self.view.leadingAnchor))
+        layouts.append(toolBar.trailingAnchor.constraint(equalTo: self.view.trailingAnchor))
+        layouts.append(toolBar.heightAnchor.constraint(equalToConstant: 45))
+        return layouts
     }()
     
     private lazy var accountEdit: UIBarButtonItem = {
@@ -55,6 +65,7 @@ class PhotoListViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = selectButton
         
         self.view.addSubview(toolBar)
+        NSLayoutConstraint.activate(toolBarSetup)
         
         NotificationCenter.default.addObserver(self, selector: #selector(editingMode), name: NSNotification.Name("editing"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(endEditingMode), name: NSNotification.Name("endEditing"), object: nil)

@@ -21,10 +21,10 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fPL-hE-8Pw">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="645"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="750"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="アカウント情報編集" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U14-uW-hGj">
-                                                <rect key="frame" x="87" y="50" width="200" height="50"/>
+                                                <rect key="frame" x="87" y="10" width="200" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="200" id="wLf-Bt-OPK"/>
                                                     <constraint firstAttribute="height" constant="50" id="xO9-QL-5ot"/>
@@ -34,7 +34,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="名前" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fv5-XZ-mbn">
-                                                <rect key="frame" x="20" y="105" width="335" height="50"/>
+                                                <rect key="frame" x="20" y="60" width="335" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="dfY-Zf-8dC"/>
                                                 </constraints>
@@ -43,7 +43,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qEa-7l-LV4">
-                                                <rect key="frame" x="20" y="150" width="335" height="45"/>
+                                                <rect key="frame" x="20" y="105" width="335" height="45"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="bLd-gv-J7n"/>
                                                 </constraints>
@@ -52,7 +52,7 @@
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="メールアドレス" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uay-1K-MXW">
-                                                <rect key="frame" x="20" y="200" width="335" height="50"/>
+                                                <rect key="frame" x="20" y="155" width="335" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="Kg3-5z-tWH"/>
                                                 </constraints>
@@ -61,7 +61,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5SU-hi-fZZ">
-                                                <rect key="frame" x="20" y="245" width="335" height="45"/>
+                                                <rect key="frame" x="20" y="200" width="335" height="45"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="Zdq-rs-raY"/>
                                                 </constraints>
@@ -70,7 +70,7 @@
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="新しいパスワード" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yf9-9P-2D2">
-                                                <rect key="frame" x="20" y="295" width="335" height="50"/>
+                                                <rect key="frame" x="20" y="250" width="335" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="WC7-OL-XjP"/>
                                                 </constraints>
@@ -79,7 +79,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rkx-kA-Ouh">
-                                                <rect key="frame" x="20" y="340" width="335" height="45"/>
+                                                <rect key="frame" x="20" y="295" width="335" height="45"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="Yak-pw-dwX"/>
                                                 </constraints>
@@ -88,7 +88,7 @@
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="新しいパスワード（確認用）" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qit-Ix-1MG">
-                                                <rect key="frame" x="20" y="390" width="335" height="50"/>
+                                                <rect key="frame" x="20" y="345" width="335" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="3Kt-gm-Lpi"/>
                                                 </constraints>
@@ -97,7 +97,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KhE-vQ-7u8">
-                                                <rect key="frame" x="20" y="435" width="335" height="45"/>
+                                                <rect key="frame" x="20" y="390" width="335" height="45"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="14w-Ly-UVT"/>
                                                 </constraints>
@@ -106,21 +106,25 @@
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GMQ-6Q-lHe">
-                                                <rect key="frame" x="87.5" y="500" width="200" height="45"/>
+                                                <rect key="frame" x="87.5" y="455" width="200" height="45"/>
                                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="200" id="7n0-Cf-wcL"/>
                                                     <constraint firstAttribute="height" constant="45" id="cXx-HW-570"/>
                                                 </constraints>
-                                                <state key="normal" title="変更"/>
+                                                <state key="normal" title="変更">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MuN-Zi-HPu">
-                                                <rect key="frame" x="0.0" y="595" width="375" height="50"/>
+                                                <rect key="frame" x="0.0" y="700" width="375" height="50"/>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="pf0-Y5-nWd"/>
                                                 </constraints>
-                                                <state key="normal" title="ログアウト"/>
+                                                <state key="normal" title="ログアウト">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -140,7 +144,7 @@
                                             <constraint firstAttribute="trailing" secondItem="qEa-7l-LV4" secondAttribute="trailing" constant="20" id="SS1-Ff-kKw"/>
                                             <constraint firstItem="qEa-7l-LV4" firstAttribute="top" secondItem="fv5-XZ-mbn" secondAttribute="bottom" constant="-5" id="T6r-2q-bVs"/>
                                             <constraint firstAttribute="trailing" secondItem="yf9-9P-2D2" secondAttribute="trailing" constant="20" id="UWq-vY-fPa"/>
-                                            <constraint firstItem="MuN-Zi-HPu" firstAttribute="top" secondItem="GMQ-6Q-lHe" secondAttribute="bottom" constant="50" id="Uw2-eN-VbS"/>
+                                            <constraint firstItem="MuN-Zi-HPu" firstAttribute="top" secondItem="GMQ-6Q-lHe" secondAttribute="bottom" constant="200" id="Uw2-eN-VbS"/>
                                             <constraint firstItem="5SU-hi-fZZ" firstAttribute="leading" secondItem="fPL-hE-8Pw" secondAttribute="leading" constant="20" id="b1Y-yp-Brs"/>
                                             <constraint firstItem="5SU-hi-fZZ" firstAttribute="top" secondItem="uay-1K-MXW" secondAttribute="bottom" constant="-5" id="eFH-jP-Zyo"/>
                                             <constraint firstItem="fv5-XZ-mbn" firstAttribute="leading" secondItem="fPL-hE-8Pw" secondAttribute="leading" constant="20" id="eZ2-NM-Foe"/>
@@ -154,8 +158,8 @@
                                             <constraint firstAttribute="trailing" secondItem="KhE-vQ-7u8" secondAttribute="trailing" constant="20" id="tgO-92-vqI"/>
                                             <constraint firstAttribute="trailing" secondItem="qit-Ix-1MG" secondAttribute="trailing" constant="20" id="tzq-mX-FGU"/>
                                             <constraint firstItem="MuN-Zi-HPu" firstAttribute="leading" secondItem="fPL-hE-8Pw" secondAttribute="leading" id="ydw-D0-GdO"/>
-                                            <constraint firstItem="U14-uW-hGj" firstAttribute="top" secondItem="fPL-hE-8Pw" secondAttribute="top" constant="50" id="yhZ-cC-I97"/>
-                                            <constraint firstItem="fv5-XZ-mbn" firstAttribute="top" secondItem="U14-uW-hGj" secondAttribute="bottom" constant="5" id="z6U-LK-fPf"/>
+                                            <constraint firstItem="U14-uW-hGj" firstAttribute="top" secondItem="fPL-hE-8Pw" secondAttribute="top" constant="10" id="yhZ-cC-I97"/>
+                                            <constraint firstItem="fv5-XZ-mbn" firstAttribute="top" secondItem="U14-uW-hGj" secondAttribute="bottom" id="z6U-LK-fPf"/>
                                             <constraint firstAttribute="trailing" secondItem="rkx-kA-Ouh" secondAttribute="trailing" constant="20" id="zUk-Ch-59T"/>
                                         </constraints>
                                     </view>

@@ -51,6 +51,8 @@
 		6EAD248A21007838006496BB /* PhotoDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EAD248921007838006496BB /* PhotoDataStore.swift */; };
 		6EAD248C2100862A006496BB /* AccountEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EAD248B2100862A006496BB /* AccountEditViewController.swift */; };
 		6EAD248E21008757006496BB /* AccountEdit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EAD248D21008757006496BB /* AccountEdit.storyboard */; };
+		6EAD249021009609006496BB /* UserRegister.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EAD248F21009609006496BB /* UserRegister.storyboard */; };
+		6EAD249221009626006496BB /* UserRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EAD249121009626006496BB /* UserRegisterViewController.swift */; };
 		6EC882D520EB7191006B79BD /* Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC882D420EB7191006B79BD /* Preview.swift */; };
 		6EC882D720EB7452006B79BD /* PreviewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC882D620EB7452006B79BD /* PreviewDelegate.swift */; };
 		6EE329F620FDBE2500E9ECD6 /* DateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE329F520FDBE2500E9ECD6 /* DateFormat.swift */; };
@@ -126,6 +128,8 @@
 		6EAD248921007838006496BB /* PhotoDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDataStore.swift; sourceTree = "<group>"; };
 		6EAD248B2100862A006496BB /* AccountEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountEditViewController.swift; sourceTree = "<group>"; };
 		6EAD248D21008757006496BB /* AccountEdit.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AccountEdit.storyboard; sourceTree = "<group>"; };
+		6EAD248F21009609006496BB /* UserRegister.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserRegister.storyboard; sourceTree = "<group>"; };
+		6EAD249121009626006496BB /* UserRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRegisterViewController.swift; sourceTree = "<group>"; };
 		6EC882D420EB7191006B79BD /* Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preview.swift; sourceTree = "<group>"; };
 		6EC882D620EB7452006B79BD /* PreviewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewDelegate.swift; sourceTree = "<group>"; };
 		6EE329F520FDBE2500E9ECD6 /* DateFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormat.swift; sourceTree = "<group>"; };
@@ -225,6 +229,7 @@
 				59F54F4920EA4F2100434DD2 /* Main.storyboard */,
 				5979286F20FA25AE0057FD9B /* CollectionView.storyboard */,
 				6EAD248D21008757006496BB /* AccountEdit.storyboard */,
+				6EAD248F21009609006496BB /* UserRegister.storyboard */,
 				6E0BCC2020FF33050089DD6F /* check.png */,
 				59F54F4C20EA4F2200434DD2 /* Assets.xcassets */,
 				59F54F4E20EA4F2200434DD2 /* LaunchScreen.storyboard */,
@@ -263,6 +268,7 @@
 				6E0BCC1C20FF1C010089DD6F /* PhotoDetailViewController.swift */,
 				6E59A7B420F4BEDF0056286B /* CameraViewController.swift */,
 				59F54F7420EA50F000434DD2 /* PreviewController.swift */,
+				6EAD249121009626006496BB /* UserRegisterViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -433,6 +439,7 @@
 				6EAD248E21008757006496BB /* AccountEdit.storyboard in Resources */,
 				59F54F5020EA4F2200434DD2 /* LaunchScreen.storyboard in Resources */,
 				6E0BCC2120FF33060089DD6F /* check.png in Resources */,
+				6EAD249021009609006496BB /* UserRegister.storyboard in Resources */,
 				5979287E20FA53510057FD9B /* CollectionHeader.xib in Resources */,
 				5979287420FA26300057FD9B /* CollectionViewCell.xib in Resources */,
 				5979287020FA25AE0057FD9B /* CollectionView.storyboard in Resources */,
@@ -504,6 +511,7 @@
 				6EAD248C2100862A006496BB /* AccountEditViewController.swift in Sources */,
 				6E0E1F0E20F609C700898E91 /* RegisterView2.swift in Sources */,
 				6E0BCC1F20FF2BCA0089DD6F /* CheckBoxView.swift in Sources */,
+				6EAD249221009626006496BB /* UserRegisterViewController.swift in Sources */,
 				6E59A7BA20F4C10D0056286B /* CaptureButton.swift in Sources */,
 				6EC882D720EB7452006B79BD /* PreviewDelegate.swift in Sources */,
 				6E85A04120FDAD17006931F8 /* PhotoList.swift in Sources */,

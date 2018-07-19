@@ -50,7 +50,10 @@ class RegisterViewController1: UIViewController, UITextFieldDelegate {
 extension RegisterViewController1: Register1Delegate {
     
     func confirm() {
-        let vc = RegisterViewController2()
+        let storyboard = UIStoryboard(name: "UserRegister", bundle: nil)
+        let vc = storyboard.instantiateInitialViewController() as! UserRegisterViewController
         self.navigationController?.pushViewController(vc, animated: true)
+//        let vc = RegisterViewController2()
+//        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
