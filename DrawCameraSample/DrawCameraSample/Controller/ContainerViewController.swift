@@ -41,11 +41,13 @@ class ContainerViewController: UIViewController {
         //headerの登録
         let header_nib = UINib(nibName: "CollectionHeader", bundle: nil)
         collectionView.register(header_nib, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "CollectionHeader")
-
+        //delegate
         collectionView.dataSource = self
         collectionView.delegate = self
-        
+        //データ取得
         getPhotos()
+        //observer
+        NotificationCenter.default.addObserver(self, selector: #selector(cancelButtonTapped), name: NSNotification.Name("reflesh"), object: nil)
     }
     
     override func viewDidLayoutSubviews() {

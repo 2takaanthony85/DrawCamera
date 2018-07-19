@@ -45,6 +45,10 @@
 		6EA8C6AC20F6E79600DF5EDC /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA8C6AB20F6E79600DF5EDC /* Extension.swift */; };
 		6EA8C6AE20F6F4B200DF5EDC /* ReturnButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA8C6AD20F6F4B100DF5EDC /* ReturnButton.swift */; };
 		6EA8C6B020F6F56400DF5EDC /* ReturnButtonDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA8C6AF20F6F56400DF5EDC /* ReturnButtonDelegate.swift */; };
+		6EAD248121005AA1006496BB /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EAD248021005AA1006496BB /* DetailView.swift */; };
+		6EAD248321006C8A006496BB /* DetailViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EAD248221006C8A006496BB /* DetailViewDelegate.swift */; };
+		6EAD248521006F2D006496BB /* PhotoDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EAD248421006F2D006496BB /* PhotoDetailPresenter.swift */; };
+		6EAD248A21007838006496BB /* PhotoDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EAD248921007838006496BB /* PhotoDataStore.swift */; };
 		6EC882D520EB7191006B79BD /* Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC882D420EB7191006B79BD /* Preview.swift */; };
 		6EC882D720EB7452006B79BD /* PreviewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC882D620EB7452006B79BD /* PreviewDelegate.swift */; };
 		6EE329F620FDBE2500E9ECD6 /* DateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE329F520FDBE2500E9ECD6 /* DateFormat.swift */; };
@@ -114,6 +118,10 @@
 		6EA8C6AB20F6E79600DF5EDC /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		6EA8C6AD20F6F4B100DF5EDC /* ReturnButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnButton.swift; sourceTree = "<group>"; };
 		6EA8C6AF20F6F56400DF5EDC /* ReturnButtonDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnButtonDelegate.swift; sourceTree = "<group>"; };
+		6EAD248021005AA1006496BB /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		6EAD248221006C8A006496BB /* DetailViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewDelegate.swift; sourceTree = "<group>"; };
+		6EAD248421006F2D006496BB /* PhotoDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailPresenter.swift; sourceTree = "<group>"; };
+		6EAD248921007838006496BB /* PhotoDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDataStore.swift; sourceTree = "<group>"; };
 		6EC882D420EB7191006B79BD /* Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preview.swift; sourceTree = "<group>"; };
 		6EC882D620EB7452006B79BD /* PreviewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewDelegate.swift; sourceTree = "<group>"; };
 		6EE329F520FDBE2500E9ECD6 /* DateFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormat.swift; sourceTree = "<group>"; };
@@ -152,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				6E85A04620FDAE7C006931F8 /* PhotoModel.swift */,
+				6EAD248921007838006496BB /* PhotoDataStore.swift */,
 				6E85A03F20FDACFD006931F8 /* RealmObject */,
 				594F6E9B20FCCAC7000B4F4D /* Entity */,
 			);
@@ -259,6 +268,7 @@
 				6E0E1EF320F5C82300898E91 /* LoginView.swift */,
 				6E0E1EF520F5C83100898E91 /* RegisterView1.swift */,
 				6E0E1F0D20F609C700898E91 /* RegisterView2.swift */,
+				6EAD248021005AA1006496BB /* DetailView.swift */,
 				6E59A7B620F4BF180056286B /* Component */,
 			);
 			path = View;
@@ -271,6 +281,7 @@
 				6E59A7BB20F4C4BF0056286B /* CaptureButtonDelegate.swift */,
 				6E0E1F0B20F5FED300898E91 /* LoginDelegate.swift */,
 				6EA8C6AF20F6F56400DF5EDC /* ReturnButtonDelegate.swift */,
+				6EAD248221006C8A006496BB /* DetailViewDelegate.swift */,
 			);
 			path = Delegate;
 			sourceTree = "<group>";
@@ -294,6 +305,7 @@
 			children = (
 				6E85A04420FDADEB006931F8 /* PreviewPresenter.swift */,
 				6E90E9DE20FED39000A48AE9 /* ContainerViewPresenter.swift */,
+				6EAD248421006F2D006496BB /* PhotoDetailPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -464,6 +476,7 @@
 				6E0E1F0C20F5FED300898E91 /* LoginDelegate.swift in Sources */,
 				59F54F7520EA50F000434DD2 /* PreviewController.swift in Sources */,
 				6E90E9DF20FED39000A48AE9 /* ContainerViewPresenter.swift in Sources */,
+				6EAD248521006F2D006496BB /* PhotoDetailPresenter.swift in Sources */,
 				6E0E1F1020F61BE900898E91 /* RegisterViewController1.swift in Sources */,
 				6EE329F820FDC2EA00E9ECD6 /* Results.swift in Sources */,
 				6EA8C6AE20F6F4B200DF5EDC /* ReturnButton.swift in Sources */,
@@ -476,7 +489,9 @@
 				6E0E1EF620F5C83100898E91 /* RegisterView1.swift in Sources */,
 				594F6E9D20FCCADE000B4F4D /* Photo.swift in Sources */,
 				594F6E9F20FCCB05000B4F4D /* ShootingDate.swift in Sources */,
+				6EAD248A21007838006496BB /* PhotoDataStore.swift in Sources */,
 				6E85A04520FDADEB006931F8 /* PreviewPresenter.swift in Sources */,
+				6EAD248121005AA1006496BB /* DetailView.swift in Sources */,
 				6E59A7BC20F4C4BF0056286B /* CaptureButtonDelegate.swift in Sources */,
 				6E59A7C020F4D5EC0056286B /* ContainerViewController.swift in Sources */,
 				6E0E1F0E20F609C700898E91 /* RegisterView2.swift in Sources */,
@@ -484,6 +499,7 @@
 				6E59A7BA20F4C10D0056286B /* CaptureButton.swift in Sources */,
 				6EC882D720EB7452006B79BD /* PreviewDelegate.swift in Sources */,
 				6E85A04120FDAD17006931F8 /* PhotoList.swift in Sources */,
+				6EAD248321006C8A006496BB /* DetailViewDelegate.swift in Sources */,
 				6E59A7BE20F4CEA30056286B /* PhotoListViewController.swift in Sources */,
 				6EC882D520EB7191006B79BD /* Preview.swift in Sources */,
 				6E0BCC1D20FF1C010089DD6F /* PhotoDetailViewController.swift in Sources */,
