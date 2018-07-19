@@ -65,7 +65,7 @@ class ContainerViewPresenter: ContainerViewPresentable {
     
     //セクションに記載する日付を返す
     func sectionText(_ indexPath: IndexPath) -> String {
-        let element = model.photoList[indexPath.row]
+        let element = model.photoList[indexPath.section]
         let date = element.date
         return DateFormat.format.string(from: date)
     }
