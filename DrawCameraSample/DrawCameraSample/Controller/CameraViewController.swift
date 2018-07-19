@@ -76,6 +76,7 @@ class CameraViewController: UIViewController {
     
     @objc private func endCamera() {
         self.dismiss(animated: true, completion: nil)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "reflesh"), object: nil)
     }
     
     override var shouldAutorotate: Bool {
