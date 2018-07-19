@@ -53,7 +53,7 @@ class RegisterView1: UIView {
     private let confirmButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("確認", for: .normal)
+        button.setTitle("照会", for: .normal)
         button.titleLabel?.textColor = UIColor.white
         button.backgroundColor = UIColor.gray
         button.layer.cornerRadius = 10
