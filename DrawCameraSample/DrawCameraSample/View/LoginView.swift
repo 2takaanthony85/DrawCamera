@@ -138,7 +138,7 @@ class LoginView: UIView {
         layouts.append(self.companyCodeLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20))
         layouts.append(self.companyCodeLabel.widthAnchor.constraint(equalToConstant: 100))
         layouts.append(self.companyCodeLabel.heightAnchor.constraint(equalToConstant: 50))
-        layouts.append(self.companyCodeLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 50))
+        layouts.append(self.companyCodeLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 80))
         return layouts
     }()
     
