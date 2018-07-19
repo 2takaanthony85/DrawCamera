@@ -33,8 +33,13 @@ class PhotoListViewController: UIViewController {
     
     private lazy var toolBar: UIToolbar = {
        let bar = UIToolbar(frame: CGRect(x: 0, y: self.view.frame.height - 45, width: self.view.frame.width, height: 45))
-        bar.items = [uploadButton, flexibleSpace, cameraButton, flexibleSpace, trashButton]
+        bar.items = [uploadButton, flexibleSpace, cameraButton, flexibleSpace, accountEdit, flexibleSpace, trashButton]
         return bar
+    }()
+    
+    private lazy var accountEdit: UIBarButtonItem = {
+        let button = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.edit, target: self, action: #selector(showAccountEdit))
+        return button
     }()
     
     private var viewController: ContainerViewController!
@@ -81,6 +86,13 @@ class PhotoListViewController: UIViewController {
         let cancelButton = UIBarButtonItem(title: "cancel", style: .done, target: viewController.self, action: #selector(viewController.cancelButtonTapped))
         self.navigationItem.rightBarButtonItem = cancelButton
         trashButton.isEnabled = true
+    }
+    
+    @objc
+    private func showAccountEdit() {
+        let storyboard = UIStoryboard(name: "AccountEdit", bundle: nil)
+        let vc = storyboard.instantiateInitialViewController() as! AccountEditViewController
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     override func didReceiveMemoryWarning() {
