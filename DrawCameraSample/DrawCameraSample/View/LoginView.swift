@@ -27,7 +27,7 @@ class LoginView: UIView {
         field.translatesAutoresizingMaskIntoConstraints = false
         field.borderStyle = .roundedRect
         field.placeholder = "企業コード"
-        field.keyboardType = .URL
+        field.keyboardType = .asciiCapable
         return field
     }()
     
@@ -44,7 +44,7 @@ class LoginView: UIView {
         field.translatesAutoresizingMaskIntoConstraints = false
         field.borderStyle = .roundedRect
         field.placeholder = "ユーザーID"
-        field.keyboardType = .URL
+        field.keyboardType = .asciiCapable
         return field
     }()
     
@@ -61,7 +61,7 @@ class LoginView: UIView {
         field.translatesAutoresizingMaskIntoConstraints = false
         field.borderStyle = .roundedRect
         field.placeholder = "パスワード"
-        field.keyboardType = .URL
+        field.keyboardType = .asciiCapable
         field.isSecureTextEntry = true
         field.tag = 1
         return field
