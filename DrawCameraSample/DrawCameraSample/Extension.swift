@@ -48,5 +48,19 @@ extension UICollectionView {
         layout.sectionInset = inset
         layout.invalidateLayout()
     }
+}
+
+extension UIImage {
+    //サムネイルのサイズの画像を生成
+    func makeThumbnail() -> UIImage {
+        let thumbnailSize = CGSize(width: 100, height: 100)
+        
+        defer { UIGraphicsEndImageContext() }
+        
+        UIGraphicsBeginImageContextWithOptions(thumbnailSize, false, 0.0)
+        draw(in: CGRect(origin: .zero, size: thumbnailSize))
+        let image = UIGraphicsGetImageFromCurrentImageContext()!
+        return image
+    }
     
 }

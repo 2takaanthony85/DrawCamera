@@ -27,7 +27,7 @@ class RegisterView1: UIView {
         field.translatesAutoresizingMaskIntoConstraints = false
         field.borderStyle = .roundedRect
         field.placeholder = "企業コード"
-        field.keyboardType = .URL
+        field.keyboardType = .asciiCapable
         return field
     }()
     
@@ -44,7 +44,7 @@ class RegisterView1: UIView {
         field.translatesAutoresizingMaskIntoConstraints = false
         field.borderStyle = .roundedRect
         field.placeholder = "パスワード"
-        field.keyboardType = .URL
+        field.keyboardType = .asciiCapable
         field.isSecureTextEntry = true
         field.tag = 1
         return field
@@ -53,7 +53,7 @@ class RegisterView1: UIView {
     private let confirmButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("確認", for: .normal)
+        button.setTitle("照会", for: .normal)
         button.titleLabel?.textColor = UIColor.white
         button.backgroundColor = UIColor.gray
         button.layer.cornerRadius = 10
@@ -100,7 +100,7 @@ class RegisterView1: UIView {
         layouts.append(self.companyCodeLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20))
         layouts.append(self.companyCodeLabel.widthAnchor.constraint(equalToConstant: 100))
         layouts.append(self.companyCodeLabel.heightAnchor.constraint(equalToConstant: 50))
-        layouts.append(self.companyCodeLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 50))
+        layouts.append(self.companyCodeLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 80))
         return layouts
     }()
     

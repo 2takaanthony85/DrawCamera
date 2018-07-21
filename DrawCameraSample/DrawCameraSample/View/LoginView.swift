@@ -27,7 +27,7 @@ class LoginView: UIView {
         field.translatesAutoresizingMaskIntoConstraints = false
         field.borderStyle = .roundedRect
         field.placeholder = "企業コード"
-        field.keyboardType = .URL
+        field.keyboardType = .asciiCapable
         return field
     }()
     
@@ -44,12 +44,11 @@ class LoginView: UIView {
         field.translatesAutoresizingMaskIntoConstraints = false
         field.borderStyle = .roundedRect
         field.placeholder = "ユーザーID"
-        field.keyboardType = .URL
+        field.keyboardType = .asciiCapable
         return field
     }()
     
     private let passwordLabel: UILabel = {
-        print("あほ")
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "パスワード"
@@ -62,7 +61,7 @@ class LoginView: UIView {
         field.translatesAutoresizingMaskIntoConstraints = false
         field.borderStyle = .roundedRect
         field.placeholder = "パスワード"
-        field.keyboardType = .URL
+        field.keyboardType = .asciiCapable
         field.isSecureTextEntry = true
         field.tag = 1
         return field
@@ -139,7 +138,7 @@ class LoginView: UIView {
         layouts.append(self.companyCodeLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20))
         layouts.append(self.companyCodeLabel.widthAnchor.constraint(equalToConstant: 100))
         layouts.append(self.companyCodeLabel.heightAnchor.constraint(equalToConstant: 50))
-        layouts.append(self.companyCodeLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 50))
+        layouts.append(self.companyCodeLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 80))
         return layouts
     }()
     

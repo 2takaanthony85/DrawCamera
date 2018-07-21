@@ -1,29 +1,21 @@
 //
-//  Preview.swift
+//  DetailView.swift
 //  DrawCameraSample
 //
-//  Created by atd on 2018/07/03.
+//  Created by atd on 2018/07/19.
 //  Copyright © 2018年 takahiro yoshikawa. All rights reserved.
 //
 
 import UIKit
 
-
-class Preview: UIView {
-    
-    //戻る、保存
-    private var returnButton: UIButton = {
-       let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.addTarget(self, action: #selector(returnButtonTapped(_:)), for: .touchUpInside)
-        return button
-    }()
+class DetailView: UIView {
     
     //全消去
     private var deleteButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(deleteButtonTapped(_:)), for: .touchUpInside)
+        button.isHidden = true
         return button
     }()
     //色変更
@@ -32,6 +24,7 @@ class Preview: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.layer.borderWidth = 1.5
         button.addTarget(self, action: #selector(colorButtonTapped(_:)), for: .touchUpInside)
+        button.isHidden = true
         return button
     }()
     
@@ -40,6 +33,7 @@ class Preview: UIView {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(preDeleteButtonTapped(_:)), for: .touchUpInside)
+        button.isHidden = true
         return button
     }()
     
@@ -48,6 +42,7 @@ class Preview: UIView {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(commentButtonTapped(_:)), for: .touchUpInside)
+        button.isHidden = true
         return button
     }()
     
@@ -64,6 +59,7 @@ class Preview: UIView {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(colorChangeButtonTapped(_:)), for: .touchUpInside)
+        button.isHidden = true
         return button
     }()
     //赤を返す
@@ -76,6 +72,7 @@ class Preview: UIView {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(colorChangeButtonTapped(_:)), for: .touchUpInside)
+        button.isHidden = true
         return button
     }()
     //青を返す
@@ -88,6 +85,7 @@ class Preview: UIView {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(colorChangeButtonTapped(_:)), for: .touchUpInside)
+        button.isHidden = true
         return button
     }()
     //緑を返す
@@ -100,6 +98,7 @@ class Preview: UIView {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(colorChangeButtonTapped(_:)), for: .touchUpInside)
+        button.isHidden = true
         return button
     }()
     //黄色を返す
@@ -112,6 +111,7 @@ class Preview: UIView {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(colorChangeButtonTapped(_:)), for: .touchUpInside)
+        button.isHidden = true
         return button
     }()
     //白を返す
@@ -124,6 +124,7 @@ class Preview: UIView {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(colorChangeButtonTapped(_:)), for: .touchUpInside)
+        button.isHidden = true
         return button
     }()
     //黒を返す
@@ -132,7 +133,7 @@ class Preview: UIView {
     }
     
     //描画されたパスを一時的に保存するようの配列
-    private var layers: [CAShapeLayer] = []
+    var layers: [CAShapeLayer] = []
     
     //描画パス用のlayer
     private var drawLayer: CAShapeLayer!
@@ -167,24 +168,31 @@ class Preview: UIView {
     //写真のビュー
     private var imageView: UIImageView!
     
-    weak var delegate: PreviewDelegate?
+    //編集モードがどうか
+    var editMode = false
     
     //コメントラベル
     private var commentLabel: UILabel!
     //コメントラベルを一時的に保存しておく配列
-    private var commentLabels: [String: UILabel] = [:]
+    var commentLabels: [String: UILabel] = [:]
     //移動用のラベル
     private var moveLabel: UILabel!
     
-    init(frame: CGRect, image: Data) {
+    weak var delegate: DetailViewDelegate?
+
+    init(frame: CGRect, _ data: PhotoData) {
         super.init(frame: frame)
         
-        imageView = UIImageView(image: UIImage(data: image))
+        imageView = UIImageView(image: UIImage(data: data.photo))
         imageView.frame = self.frame
         self.addSubview(imageView)
         
-        self.addSubview(returnButton)
-        returnButtonSetting(self.returnButton)
+        data.process.layers.forEach({ (layer) -> Void in
+            imageView.layer.addSublayer(layer)
+        })
+        data.process.labels.forEach({ (label) -> Void in
+            imageView.addSubview(label.value)
+        })
         
         self.addSubview(deleteButton)
         deleteButtonSetting(deleteButton)
@@ -223,7 +231,30 @@ class Preview: UIView {
         
         self.addSubview(commentButton)
         commentButtonSetting(self.commentButton)
-
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(buttonsHidden), name: NSNotification.Name("endEdit"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(buttonsDisplay), name: NSNotification.Name("edit"), object: nil)
+    }
+    
+    @objc
+    private func buttonsHidden() {
+        buttonsHiddenSetting()
+    }
+    
+    @objc
+    private func buttonsDisplay() {
+        imageView.subviews.forEach {
+            $0.removeFromSuperview()
+        }
+        imageView.layer.sublayers?.forEach {
+            $0.removeFromSuperlayer()
+        }
+        buttonsDisplaySetting()
+    }
+    
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
     }
     
     @objc private func colorChangeButtonTapped(_ sender: UIButton) {
@@ -259,31 +290,6 @@ class Preview: UIView {
     
     @objc private func commentButtonTapped(_ sender: UIButton) {
         self.delegate?.addComment()
-    }
-    
-    @objc private func returnButtonTapped(_ sender: UIButton) {
-        //キャプチャ前にボタンを隠す
-        buttonsHidden()
-        print("layers.count2: \(layers.count)")
-        //保存
-        self.delegate?.savePhoto(commentLabels, layers)
-        //閉じる
-        self.delegate?.closeViewController()
-    }
-    
-    //保存時に写真に写り込まないようにボタンを隠す
-    private func buttonsHidden() {
-        returnButton.isHidden       = true
-        preDeleteButton.isHidden    = true
-        deleteButton.isHidden       = true
-        colorButton.isHidden        = true
-        redButton.isHidden          = true
-        blueButton.isHidden         = true
-        greenButton.isHidden        = true
-        yellowButton.isHidden       = true
-        whiteButton.isHidden        = true
-        blackButton.isHidden        = true
-        commentButton.isHidden      = true
     }
     
     //コメントを追加する
@@ -350,6 +356,9 @@ class Preview: UIView {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard editMode else {
+            return
+        }
         if let touch = touches.first {
             let location = touch.location(in: self)
             beforePoint = location
@@ -359,6 +368,9 @@ class Preview: UIView {
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard editMode else {
+            return
+        }
         if let touch = touches.first {
             let location = touch.location(in: self)
             
@@ -374,6 +386,9 @@ class Preview: UIView {
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard editMode else {
+            return
+        }
         if let touch = touches.first {
             let location = touch.location(in: self)
             
@@ -387,6 +402,34 @@ class Preview: UIView {
             }
             
         }
+    }
+    
+    //編集モードが終わったときのボタン非表示
+    private func buttonsHiddenSetting() {
+        preDeleteButton.isHidden    = true
+        deleteButton.isHidden       = true
+        colorButton.isHidden        = true
+        redButton.isHidden          = true
+        blueButton.isHidden         = true
+        greenButton.isHidden        = true
+        yellowButton.isHidden       = true
+        whiteButton.isHidden        = true
+        blackButton.isHidden        = true
+        commentButton.isHidden      = true
+    }
+    
+    //編集モードになったときのボタンの表示
+    private func buttonsDisplaySetting() {
+        preDeleteButton.isHidden    = false
+        deleteButton.isHidden       = false
+        colorButton.isHidden        = false
+        redButton.isHidden          = false
+        blueButton.isHidden         = false
+        greenButton.isHidden        = false
+        yellowButton.isHidden       = false
+        whiteButton.isHidden        = false
+        blackButton.isHidden        = false
+        commentButton.isHidden      = false
     }
     
     //色変更時のボタンのアニメーション
@@ -417,13 +460,9 @@ class Preview: UIView {
         }, completion: nil)
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
 }
 
-extension Preview {
+extension DetailView {
     
     //レイアウトなど見た目に関する部分
     
@@ -464,20 +503,6 @@ extension Preview {
         preDeleteButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -60).isActive = true
     }
     
-    private func returnButtonSetting(_ returnButton: UIButton) {
-        returnButton.setTitle("戻る", for: .normal)
-        returnButton.setTitleColor(white, for: .normal)
-        returnButton.titleLabel?.adjustsFontSizeToFitWidth = true
-        returnButton.backgroundColor = UIColor.clear
-        returnButton.layer.borderWidth = 2.0
-        returnButton.layer.borderColor = white.cgColor
-        returnButton.layer.cornerRadius = 20
-        returnButton.widthAnchor.constraint(equalToConstant: 60).isActive = true
-        returnButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        returnButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10).isActive = true
-        returnButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 20).isActive = true
-    }
-    
     private func commentButtonSetting(_ commentButton: UIButton) {
         commentButton.setTitle("コメント", for: .normal)
         commentButton.setTitleColor(black, for: .normal)
@@ -486,7 +511,8 @@ extension Preview {
         commentButton.layer.cornerRadius = 20
         commentButton.widthAnchor.constraint(equalToConstant: 60).isActive = true
         commentButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        commentButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10).isActive = true
-        commentButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 20).isActive = true
+        commentButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -150).isActive = true
+        commentButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -20).isActive = true
     }
+    
 }
