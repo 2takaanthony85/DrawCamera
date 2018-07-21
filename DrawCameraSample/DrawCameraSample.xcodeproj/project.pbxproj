@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		594F6E9D20FCCADE000B4F4D /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594F6E9C20FCCADE000B4F4D /* Photo.swift */; };
 		594F6E9F20FCCB05000B4F4D /* ShootingDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594F6E9E20FCCB05000B4F4D /* ShootingDate.swift */; };
+		594F6EA12102B004000B4F4D /* LoginView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 594F6EA02102B004000B4F4D /* LoginView.storyboard */; };
+		594F6EA32102B4C9000B4F4D /* LoginViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594F6EA22102B4C9000B4F4D /* LoginViewController2.swift */; };
 		5979287020FA25AE0057FD9B /* CollectionView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5979286F20FA25AE0057FD9B /* CollectionView.storyboard */; };
 		5979287320FA26300057FD9B /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5979287120FA26300057FD9B /* CollectionViewCell.swift */; };
 		5979287420FA26300057FD9B /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5979287220FA26300057FD9B /* CollectionViewCell.xib */; };
@@ -80,6 +82,8 @@
 /* Begin PBXFileReference section */
 		594F6E9C20FCCADE000B4F4D /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		594F6E9E20FCCB05000B4F4D /* ShootingDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShootingDate.swift; sourceTree = "<group>"; };
+		594F6EA02102B004000B4F4D /* LoginView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginView.storyboard; sourceTree = "<group>"; };
+		594F6EA22102B4C9000B4F4D /* LoginViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController2.swift; sourceTree = "<group>"; };
 		5979286F20FA25AE0057FD9B /* CollectionView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CollectionView.storyboard; sourceTree = "<group>"; };
 		5979287120FA26300057FD9B /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		5979287220FA26300057FD9B /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
@@ -257,6 +261,7 @@
 			isa = PBXGroup;
 			children = (
 				6E0E1EED20F5C7ED00898E91 /* LoginViewController.swift */,
+				594F6EA22102B4C9000B4F4D /* LoginViewController2.swift */,
 				6E0E1F0F20F61BE900898E91 /* RegisterViewController1.swift */,
 				6E0E1F1120F61BF900898E91 /* RegisterViewController2.swift */,
 				6E59A7BD20F4CEA30056286B /* PhotoListViewController.swift */,
@@ -279,6 +284,7 @@
 				6E0E1F0D20F609C700898E91 /* RegisterView2.swift */,
 				6EAD248021005AA1006496BB /* DetailView.swift */,
 				5979286F20FA25AE0057FD9B /* CollectionView.storyboard */,
+				594F6EA02102B004000B4F4D /* LoginView.storyboard */,
 				6EAD248D21008757006496BB /* AccountEdit.storyboard */,
 				6EAD248F21009609006496BB /* UserRegister.storyboard */,
 				6E59A7B620F4BF180056286B /* Component */,
@@ -453,6 +459,7 @@
 				5979287020FA25AE0057FD9B /* CollectionView.storyboard in Resources */,
 				59F54F4D20EA4F2200434DD2 /* Assets.xcassets in Resources */,
 				59F54F4B20EA4F2100434DD2 /* Main.storyboard in Resources */,
+				594F6EA12102B004000B4F4D /* LoginView.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -501,6 +508,7 @@
 				6EAD248521006F2D006496BB /* PhotoDetailPresenter.swift in Sources */,
 				6E0E1F1020F61BE900898E91 /* RegisterViewController1.swift in Sources */,
 				6EE329F820FDC2EA00E9ECD6 /* Results.swift in Sources */,
+				594F6EA32102B4C9000B4F4D /* LoginViewController2.swift in Sources */,
 				6EA8C6AE20F6F4B200DF5EDC /* ReturnButton.swift in Sources */,
 				6EE329FA20FDE9A800E9ECD6 /* ProcessData.swift in Sources */,
 				6E85A04720FDAE7C006931F8 /* PhotoModel.swift in Sources */,

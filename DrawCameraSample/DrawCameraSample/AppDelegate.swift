@@ -16,8 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        let first = LoginViewController()
-        let myNavigationController = UINavigationController(rootViewController: first)
+        //let first = LoginViewController()
+        let storyboard = UIStoryboard(name: "LoginView", bundle: nil)
+        let vc = storyboard.instantiateInitialViewController() as! LoginViewController2
+        let myNavigationController = UINavigationController(rootViewController: vc)
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window?.rootViewController = myNavigationController
         self.window?.makeKeyAndVisible()
